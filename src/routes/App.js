@@ -1,5 +1,6 @@
 import React from 'react';
 import Dashboard from './Dashboard'
+import Navbar from '../components/Navbar'
 import decode from 'jwt-decode'
 
 
@@ -17,7 +18,10 @@ const App = () => {
     return (
         <div>
             {currentUser() &&
-                <Dashboard currentUser={currentUser().user.id}/>
+            <div>
+                <Navbar />
+                <Dashboard />
+            </div>
             }
         </div>
     )

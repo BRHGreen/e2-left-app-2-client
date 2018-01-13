@@ -27,8 +27,6 @@ class Register extends React.Component {
 
     const { ok, errors, refreshToken, token } = response.data.register;
 
-    console.log('response.data.register', response.data)
-
     if (ok) {
       localStorage.setItem('token', token);
       localStorage.setItem('refreshToken', refreshToken);

@@ -15,6 +15,12 @@ export const getUser = gql`
       id
       username
       email
+      userProfile {
+        age
+        occupation
+        interests
+        bio
+      }
     }
   }
 `;
