@@ -1,13 +1,12 @@
 import React from 'react'
-import { getUser } from '../graphql/user'
-import { graphql, compose } from 'react-apollo'
+
 import '../styles/app.css'
 
 
 class Dashboard extends React.Component {
 
     render () {
-        const { getUser } = this.props.data
+        const { getUser } = this.props
         return (
             <div>
                 {getUser &&
@@ -20,10 +19,6 @@ class Dashboard extends React.Component {
     }
 }
 
-const DashboardWithMutations = compose(
-    graphql(getUser)
-)(Dashboard)
-
-export default DashboardWithMutations
+export default Dashboard
 
 

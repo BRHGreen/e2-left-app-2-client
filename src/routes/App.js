@@ -2,29 +2,31 @@ import React from 'react';
 import Dashboard from './Dashboard'
 import Navbar from '../components/Navbar'
 import decode from 'jwt-decode'
+import { graphql, compose } from 'react-apollo'
+import { getUser } from '../graphql/user'
 
-
-const App = () => {
-    const currentUser = () => {
-        try {
-            localStorage.getItem('token')
-            const token = localStorage.getItem('token');
-            const user = decode(token);
-            return (user);
-        } catch (err) {
-            return null
-        }
-    }
-    return (
-        <div>
-            {currentUser() &&
+   class App extends React.Component {
+        render () {
+        const { getUser } = this.props.data
+        return (
             <div>
-                <Navbar />
-                <Dashboard />
+                {getUser &&
+                <div>
+                    <Navbar 
+                    getUser={getUser}
+                    />
+                    <Dashboard
+                    getUser={getUser}
+                    />
+                </div>
+                 }
             </div>
-            }
-        </div>
-    )
+        )
+    }
 }
 
-export default App
+const AppWithMutations = compose(
+    graphql(getUser)
+)(App)
+
+export default AppWithMutations

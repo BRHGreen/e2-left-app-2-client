@@ -1,6 +1,6 @@
 import React from 'react'
 import decode from 'jwt-decode'
-import App from './App'
+import AppWithMutations from './App'
 import Register from './Register'
 import Login from './Login'
 
@@ -43,7 +43,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 export default () =>(
   <BrowserRouter>
     <Switch>
-      <PrivateRoute path="/" exact component={App} />
+      <PrivateRoute path="/" exact component={AppWithMutations} />
       <Route path="/register" exact component={Register} />
       <Route path="/login" exact component={Login} />
     </Switch>
