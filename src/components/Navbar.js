@@ -1,11 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({
     getUser
 }) => (
 <nav>
-    <p>Navbar</p>
-    <p>{getUser.username}</p>
+    <ul>
+        <li><Link to={'/'}>E2 Left</Link></li>
+        <li><Link to={'/'}>{getUser.username}</Link></li>
+        <li>Logout</li>
+    </ul>
 </nav>
 )
 

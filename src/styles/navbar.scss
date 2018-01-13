@@ -1,0 +1,20 @@
+@import "variables.scss";
+nav {
+    width: 100%;
+    background: $background-color-pale;
+    color: $text-color-brand-primary;
+    -webkit-box-shadow: 2px -2px 16px 5px rgba(219,215,219,0.39);
+    -moz-box-shadow: 2px -2px 16px 5px rgba(219,215,219,0.39);
+    box-shadow: 2px -2px 16px 5px rgba(219,215,219,0.39);
+    padding: $padding-md;
+    ul, li {
+        margin: 0;
+    }
+    ul {
+        display: flex;
+        justify-content: flex-end;
+        li {
+            padding: $padding-md;
+        }
+    }
+}
