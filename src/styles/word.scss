@@ -1,0 +1,29 @@
+.word {
+    &__page {
+        li {
+            h4 {
+                margin: 0;
+                display: inline-block;
+            }
+            button {
+                margin-top: 0;
+            }
+        }
+        &--edit {
+            li {
+                div > {
+                    label {
+                        margin-right: 5px;
+                        display: inherit;
+                    }
+                }
+            }
+            }
+    }
+    &__list {
+        &--buttons {
+            display: flex;
+            flex-direction: row;
+        }
+    }
+}
