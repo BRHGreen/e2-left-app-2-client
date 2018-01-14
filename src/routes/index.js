@@ -1,8 +1,8 @@
 import React from 'react'
 import decode from 'jwt-decode'
 import AppWithMutations from './App'
-import Register from './Register'
-import Login from './Login'
+import Register from './auth/Register'
+import Login from './auth/Login'
 
 import {
   BrowserRouter,
