@@ -4,9 +4,11 @@ import AppWithMutations from './App'
 import Register from './auth/Register'
 import Login from './auth/Login'
 import UserProfile from './UserProfile'
+import Navbar from '../components/Navbar'
 
 import {
-  BrowserRouter,
+  // history,
+  BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
@@ -42,12 +44,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 );
 
 export default () =>(
-  <BrowserRouter>
-    <Switch>
+  <Router>
+    <div>
+      <Route component={Navbar} />
       <PrivateRoute path="/" exact component={AppWithMutations} />
       <PrivateRoute path="/user-profile" exact component={UserProfile} />
       <Route path="/register" exact component={Register} />
       <Route path="/login" exact component={Login} />
-    </Switch>
-  </BrowserRouter>
+    </div>
+  </Router>
 )

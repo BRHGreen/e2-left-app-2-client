@@ -11,9 +11,6 @@ import { getUser } from '../graphql/user'
             <div>
                 {getUser &&
                 <div>
-                    <Navbar 
-                    getUser={getUser}
-                    />
                     <Dashboard
                     getUser={getUser}
                     />
