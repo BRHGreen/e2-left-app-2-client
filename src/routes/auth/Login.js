@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql } from 'react-apollo';
-import { login } from '../graphql/auth';
+import { login } from '../../graphql/auth';
 
 class Login extends React.Component {
     state = {

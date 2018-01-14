@@ -3,6 +3,7 @@ import decode from 'jwt-decode'
 import AppWithMutations from './App'
 import Register from './auth/Register'
 import Login from './auth/Login'
+import UserProfile from './UserProfile'
 
 import {
   BrowserRouter,
@@ -44,6 +45,7 @@ export default () =>(
   <BrowserRouter>
     <Switch>
       <PrivateRoute path="/" exact component={AppWithMutations} />
+      <PrivateRoute path="/user-profile" exact component={UserProfile} />
       <Route path="/register" exact component={Register} />
       <Route path="/login" exact component={Login} />
     </Switch>
