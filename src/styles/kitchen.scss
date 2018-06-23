@@ -1,8 +1,17 @@
 @import "variables.scss";
 
-.kitchen__wrapper {
-  height: 100vh;
-  width: 100%;
-  padding: $padding-md;
-  // background: red;
+.kitchen {
+    &__wrapper {
+      height: 50vh;
+      width: 100%;
+      padding: $padding-md;
+      border: 1px solid black; 
+    &__cupboards {
+      border: 1px solid black;
+
+    }
+    &__fridges {
+      border: 1px solid black; 
+    }
+  }
 }

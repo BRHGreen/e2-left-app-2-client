@@ -49,6 +49,11 @@ nav {
       padding: 10px; }
 
 .kitchen__wrapper {
-  height: 100vh;
+  height: 50vh;
   width: 100%;
-  padding: 10px; }
+  padding: 10px;
+  border: 1px solid black; }
+  .kitchen__wrapper__cupboards {
+    border: 1px solid black; }
+  .kitchen__wrapper__fridges {
+    border: 1px solid black; }

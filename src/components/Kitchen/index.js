@@ -8,7 +8,6 @@ class Kitchen extends React.Component {
       <div className="kitchen__wrapper">
         <Fridges />
         <Cupboards />
-        bleep   
       </div>
     )
   }
