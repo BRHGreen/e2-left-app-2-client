@@ -27,6 +27,11 @@ li {
 .page-content {
   padding: 20px; }
 
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%; }
+
 nav {
   width: 100%;
   background: #F8F9FA;
