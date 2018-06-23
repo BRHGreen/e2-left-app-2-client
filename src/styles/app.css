@@ -47,3 +47,8 @@ nav {
     justify-content: flex-end; }
     nav ul li {
       padding: 10px; }
+
+.kitchen__wrapper {
+  height: 100vh;
+  width: 100%;
+  padding: 10px; }

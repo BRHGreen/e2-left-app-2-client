@@ -5,6 +5,7 @@ import Register from './auth/Register'
 import Login from './auth/Login'
 import UserProfile from './UserProfile'
 import Navbar from '../components/Navbar'
+import Kitchen from '../components/Kitchen'
 
 import {
   // history,
@@ -49,6 +50,7 @@ export default () =>(
       <Route component={Navbar} />
       <PrivateRoute path="/" exact component={AppWithMutations} />
       <PrivateRoute path="/user-profile" exact component={UserProfile} />
+      <PrivateRoute path="/kitchen" exact component={Kitchen} />
       <Route path="/register" exact component={Register} />
       <Route path="/login" exact component={Login} />
     </div>
