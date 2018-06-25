@@ -1,6 +1,6 @@
 import React from 'react';
 import Fridges from './Fridges'
-import Cupboards from './Cupboards'
+import Cupboards from './Cupboards/Cupboards'
 
 class Kitchen extends React.Component {
   render () {

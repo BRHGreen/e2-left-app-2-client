@@ -2,16 +2,59 @@
 
 .kitchen {
     &__wrapper {
-      height: 50vh;
+      height: 100vh;
       width: 100%;
       padding: $padding-md;
       border: 1px solid black; 
+      position: relative;
+    }
     &__cupboards {
-      border: 1px solid black;
+      &__mainland-west,
+      &__mainland-north,
+      &__peninsula,
+      &__island {
+        background: $grey;
+        position: absolute;
+      }
+      &__mainland-west {
+        height: 10%;
+        width: 40%;
+        right: 15%;
+      }
+      &__mainland-north {
+        height: 60%;
+        width: 10%;
+        right: 0%;
+        top: 15%;
+      }
+      &__peninsula {
+        height: 10%;
+        width: 50%;
+        right: 0%;
+        top: 75%;
 
+      }
+      &__island {
+        width: 25%;
+        height: 40%;
+        top: 23%;
+        right: 23%;
+      }
     }
     &__fridges {
-      border: 1px solid black; 
+      &__west,
+      &__east {
+        background: $blue;
+        position: absolute;        
+      }
+      &__west {
+        height: 10%;
+        width: 45%;
+      }
+      &__east {
+        top: 20%;
+        height: 10%;
+        width: 10%;
+      }
     }
-  }
 }

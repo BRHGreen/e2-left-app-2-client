@@ -49,11 +49,48 @@ nav {
       padding: 10px; }
 
 .kitchen__wrapper {
-  height: 50vh;
+  height: 100vh;
   width: 100%;
   padding: 10px;
-  border: 1px solid black; }
-  .kitchen__wrapper__cupboards {
-    border: 1px solid black; }
-  .kitchen__wrapper__fridges {
-    border: 1px solid black; }
+  border: 1px solid black;
+  position: relative; }
+
+.kitchen__cupboards__mainland-west, .kitchen__cupboards__mainland-north, .kitchen__cupboards__peninsula, .kitchen__cupboards__island {
+  background: #DAD9D9;
+  position: absolute; }
+
+.kitchen__cupboards__mainland-west {
+  height: 10%;
+  width: 40%;
+  right: 15%; }
+
+.kitchen__cupboards__mainland-north {
+  height: 60%;
+  width: 10%;
+  right: 0%;
+  top: 15%; }
+
+.kitchen__cupboards__peninsula {
+  height: 10%;
+  width: 50%;
+  right: 0%;
+  top: 75%; }
+
+.kitchen__cupboards__island {
+  width: 25%;
+  height: 40%;
+  top: 23%;
+  right: 23%; }
+
+.kitchen__fridges__west, .kitchen__fridges__east {
+  background: #A6C5FE;
+  position: absolute; }
+
+.kitchen__fridges__west {
+  height: 10%;
+  width: 45%; }
+
+.kitchen__fridges__east {
+  top: 20%;
+  height: 10%;
+  width: 10%; }
