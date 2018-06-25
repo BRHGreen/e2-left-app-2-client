@@ -1,8 +1,4 @@
 import React, { Component } from 'react';
-import CupboardsMainlandWest from './CupboardsMainlandWest'
-import CupboardsMainlandNorth from './CupboardsMainlandNorth'
-import CupboardsPeninsula from './CupboardsPeninsula'
-import CupboardsIsland from './CupboardsIsland'
 
 class Cupboards extends React.Component {
   state = {
