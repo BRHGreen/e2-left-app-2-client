@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { graphql, compose } from 'react-apollo'
+import { allCupboards, mainlandWestCupboards, mainlandEastCupboards } from '../../../graphql/kitchen/cupboards'
 
 class Cupboards extends React.Component {
   state = {
@@ -24,6 +26,7 @@ class Cupboards extends React.Component {
       'peninsula',
       'island',
     ]
+    console.log('cupboard props',this.props)
     return (
       <div className="kitchen__cupboards">
       {
@@ -32,7 +35,6 @@ class Cupboards extends React.Component {
             className={`kitchen__cupboards__${cupboard} ${this.state[this.convertCasing(cupboard)] ? "selected" : ""}`}
             onClick={() => this.handleViewChange (cupboard)}
             key={i}
-            name={cupboard}
           >
             {`kitchen__cupboards__${cupboard}`}
           </div>
@@ -43,4 +45,15 @@ class Cupboards extends React.Component {
   }
 }
 
-export default Cupboards
+const CupboardsWithQueriesAndMutations = compose(
+  graphql(allCupboards, 
+    { name: "allCupboards" }
+  ),
+  graphql(mainlandWestCupboards,
+    { name: "mainlandWestCupboards" }
+  ),
+  graphql(mainlandEastCupboards,
+    { name: "mainlandEastCupboards" }
+  ),
+)(Cupboards)
+export default CupboardsWithQueriesAndMutations
