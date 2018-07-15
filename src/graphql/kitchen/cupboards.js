@@ -9,7 +9,7 @@ query  getCupboards {
 }
 `;
 
-export const mainlandWestCupboards = gql`
+export const getMainlandWestCupboards = gql`
 query  getMainlandWestCupboards {
   getMainlandWestCupboards {
     landMass
@@ -18,7 +18,7 @@ query  getMainlandWestCupboards {
 }
 `;
 
-export const mainlandEastCupboards = gql`
+export const getMainlandEastCupboards = gql`
 query  getMainlandEastCupboards {
   getMainlandEastCupboards {
     landMass
