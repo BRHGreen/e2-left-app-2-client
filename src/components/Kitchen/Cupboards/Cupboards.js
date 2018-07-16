@@ -1,14 +1,10 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo'
 import { allCupboards } from '../../../graphql/kitchen/cupboards'
-import MainlandWestCupboardsWithQueriesAndMutations
- from './MainlandWestCupboards'
-import MainlandEastCupboardsWithQueriesAndMutations
- from './MainlandEastCupboards'
 
 class Cupboards extends React.Component {
   state = {
-    cupboardView: 'mainlandEastCupboards',
+    cupboardView: 'allCupboards',
     mainlandWest: false,
     mainlandNorth: false,
     peninsula: false,
@@ -31,27 +27,19 @@ class Cupboards extends React.Component {
       'peninsula',
       'island',
     ]
-    const { cupboardView } = this.state
     console.log('cupboard props',this.props)
-    console.log('cupboardView', cupboardView)
     return (
       <div className="kitchen__cupboards">
-      {cupboardView === 'allCupboards' &&
+      {
         cupboards.map((cupboard, i)=> (
           <div
-            className={`kitchen__cupboards__${cupboard} ${this.state[this.convertCasing(cupboard)] ? "selected" : ""}`}
+            className={`kitchen__cupboards__${cupboard} ${this.props[this.convertCasing(cupboard)] ? "selected" : ""}`}
             onClick={() => this.handleViewChange (cupboard)}
             key={i}
           >
             {`kitchen__cupboards__${cupboard}`}
           </div>
         ))
-      }
-      {cupboardView === 'mainlandWestCupboards'&&
-          <MainlandWestCupboardsWithQueriesAndMutations />
-      }
-      {cupboardView === 'mainlandEastCupboards' &&
-          <MainlandEastCupboardsWithQueriesAndMutations />
       }
       </div>
     )
