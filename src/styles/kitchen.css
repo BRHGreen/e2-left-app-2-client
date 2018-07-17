@@ -5,7 +5,7 @@
   border: 1px solid black;
   position: relative; }
 
-.kitchen__cupboards__mainland-west, .kitchen__cupboards__mainland-north, .kitchen__cupboards__peninsula, .kitchen__cupboards__island {
+.kitchen__cupboards__mainland-west, .kitchen__cupboards__mainland-east, .kitchen__cupboards__peninsula, .kitchen__cupboards__island {
   background: #DAD9D9;
   position: absolute; }
 
@@ -14,7 +14,7 @@
   width: 40%;
   right: 15%; }
 
-.kitchen__cupboards__mainland-north {
+.kitchen__cupboards__mainland-east {
   height: 60%;
   width: 10%;
   right: 0%;
@@ -44,3 +44,11 @@
   top: 20%;
   height: 10%;
   width: 10%; }
+
+.mainland-west-cupboards__container {
+  border: 1px solid;
+  height: 400px;
+  width: 100%; }
+
+.mainland-west-cupboards .mainlandWest-1 {
+  border: 1px solid; }

@@ -10,7 +10,7 @@
     }
     &__cupboards {
       &__mainland-west,
-      &__mainland-north,
+      &__mainland-east,
       &__peninsula,
       &__island {
         background: $grey;
@@ -21,7 +21,7 @@
         width: 40%;
         right: 15%;
       }
-      &__mainland-north {
+      &__mainland-east {
         height: 60%;
         width: 10%;
         right: 0%;
@@ -57,4 +57,15 @@
         width: 10%;
       }
     }
+}
+
+.mainland-west-cupboards{
+  &__container {
+    border: 1px solid;
+    height: 400px;
+    width: 100%;
+  }
+  .mainlandWest-1 {
+    border: 1px solid;
+  }
 }

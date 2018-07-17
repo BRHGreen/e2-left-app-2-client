@@ -15,7 +15,7 @@ class Cupboards extends React.Component {
   render () {
     const cupboards = [
       'mainland-west',
-      'mainland-north',
+      'mainland-east',
       'peninsula',
       'island',
     ]
