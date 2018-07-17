@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo'
 import { allCupboards } from '../../../graphql/kitchen/cupboards'
+import { convertCasing } from '../../../utilities/casing'
 
 class Cupboards extends React.Component {
   state = {
@@ -10,15 +11,6 @@ class Cupboards extends React.Component {
     peninsula: false,
     island: false,
   }
-
-  convertCasing (string) {
-    return string.replace(/-([a-z])/g, g => g[1].toUpperCase())
-  }
-  
-  handleViewChange (cupboard) {
-    const cupboardStateName = this.convertCasing(cupboard);
-    this.setState({ [cupboardStateName]: !this.state[cupboardStateName] })
-  }
   
   render () {
     const cupboards = [
@@ -27,19 +19,25 @@ class Cupboards extends React.Component {
       'peninsula',
       'island',
     ]
+    const { handleViewChange } = this.props
     console.log('cupboard props',this.props)
     return (
       <div className="kitchen__cupboards">
       {
-        cupboards.map((cupboard, i)=> (
+        cupboards.map((cupboard, i)=> {
+          const cupboardName = convertCasing(cupboard);
+          return (
           <div
-            className={`kitchen__cupboards__${cupboard} ${this.props[this.convertCasing(cupboard)] ? "selected" : ""}`}
-            onClick={() => this.handleViewChange (cupboard)}
+            className={`kitchen__cupboards__${cupboard} ${this.props[cupboardName] ? "selected" : ""}`}
             key={i}
+            onClick={() => handleViewChange(cupboardName)}
           >
             {`kitchen__cupboards__${cupboard}`}
           </div>
-        ))
+        
+        )
+        }
+      )
       }
       </div>
     )

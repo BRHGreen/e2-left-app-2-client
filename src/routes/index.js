@@ -5,7 +5,7 @@ import Register from './auth/Register'
 import Login from './auth/Login'
 import UserProfile from './UserProfile'
 import Navbar from '../components/Navbar'
-import Kitchen from '../components/Kitchen'
+import Kitchen from '../components/Kitchen/Kitchen'
 
 import {
   // history,

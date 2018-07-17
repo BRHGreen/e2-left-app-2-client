@@ -9,10 +9,8 @@ const MainlandEastCupboards = (props) => {
   )
 }
 
-const MainlandEastCupboardsWithQueriesAndMutations = compose(
+export const MainlandEastCupboardsContainer = compose(
   graphql(getMainlandEastCupboards,
     { name: "mainlandEastCupboards" }
   ),
 )(MainlandEastCupboards)
-
-export default MainlandEastCupboardsWithQueriesAndMutations
