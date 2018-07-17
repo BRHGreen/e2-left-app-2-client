@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo'
 import { getMainlandWestCupboards } from '../../../graphql/kitchen/cupboards'
+import { camelCaseToDash } from '../../../utilities/casing';
 
 const MainlandWestCupboards = (
   props,
@@ -13,10 +14,15 @@ const MainlandWestCupboards = (
     {
       props.mainlandWestCupboards.loading 
       ? <div>Loading</div>
-      : <div>{props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => (
-        <div key={i} className={`${cupboard.landMass}-${cupboard.cupboardNumber}`}>
-        </div>
-      ))
+      : <div>{props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
+          const cupboardClassName = camelCaseToDash(`${cupboard.landMass}--${cupboard.cupboardNumber}`)
+          return (
+            <div key={i} className={cupboardClassName}>
+              {}
+            </div>
+          )
+        }
+      )
     }
     </div>
     }
