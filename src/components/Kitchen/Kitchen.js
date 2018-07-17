@@ -9,7 +9,7 @@ import { convertCasing } from '../../utilities/casing'
 
 class Kitchen extends React.Component {
   state = {
-    cupboardView: 'allCupboards',
+    kitchenView: 'wholeKitchen',
     mainlandWest: false,
     mainlandNorth: false,
     peninsula: false,
@@ -19,24 +19,28 @@ class Kitchen extends React.Component {
   handleViewChange(cupboard) {
     const cupboardStateName = convertCasing(cupboard);
     console.log('cupboardStateName', cupboardStateName)
-    this.setState({ [cupboardStateName]: !this.state[cupboardStateName] })
+    console.log('this.state', this.state)
+    this.setState({ kitchenView: cupboardStateName })
   }
   
   render () {
-    const { cupboardView } = this.state
+    const { kitchenView } = this.state
     return (
       <div className="kitchen__wrapper">
-        <Fridges />
-        {cupboardView === 'allCupboards' &&
-          <Cupboards
-            cupboards={this.state}
-            handleViewChange={(cupboard) => this.handleViewChange(cupboard)}
-          />
+        {kitchenView === 'wholeKitchen' &&
+          [
+            <Fridges key="0"/>,
+            <Cupboards
+              key="1"
+              cupboards={this.state}
+              handleViewChange={(cupboard) => this.handleViewChange(cupboard)}
+            />
+          ]
         }
-        {cupboardView === 'mainlandWestCupboards' &&
+        {kitchenView === 'mainlandWest' &&
           <MainlandWestCupboards />
         }
-        {cupboardView === 'mainlandEastCupboards' &&
+        {kitchenView === 'mainlandEast' &&
           <MainlandEastCupboards />
         }
       </div>
