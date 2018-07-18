@@ -10,54 +10,45 @@ const MainlandWestCupboards = (
 )
   const cupboardClassName = ({ landMass, cupboardNumber }, position) => (
     camelCaseToDash(
-      `
-       ${landMass}__cupboard
-       ${landMass}__cupboard--${position}
-       ${landMass}--${cupboardNumber}
-       `
+      `${landMass}__cupboard ${landMass}__cupboard--${position} ${landMass}--${cupboardNumber}`
     )
   )
 
   return (
-    <div className="mainland-west-cupboards__container">MainlandWestCupboards
+    <div className="mainland-west-cupboards__container">
     {
       props.mainlandWestCupboards.loading 
       ? <div>Loading</div>
       : <div>
-          <div>
+          <div className="mainland-west__cupboard--top--container">
             {props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
               if (cupboard.cupboardNumber <= 3) {
                 return (
                   <div key={i} className={`${cupboardClassName(cupboard, "top")}`}>
-                    {cupboardClassName(cupboard, "top")}
+                    {cupboard.cupboardNumber}
                   </div>
                 )
               }
             }
           )
         }
-      </div>
-        <div className="mainland-west__cupboard">sink blank</div>
-        <div>
-          {props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
+        <div className="mainland-west__cupboard mainland-west__cupboard--sink">sink</div>{props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
             if (cupboard.cupboardNumber > 3 && cupboard.cupboardNumber <= 5) {
               return (
                 <div key={i} className={`${cupboardClassName(cupboard, "top")}`}>
-                  {cupboardClassName(cupboard, "top")}
+                  {cupboard.cupboardNumber}
                 </div>
               )
             }
           }
         )
       }
-    </div>
-        <div>bottom break</div>
-        <div>
-          {props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
+      </div>
+            <div className="mainland-west__cupboard--bottom--container">{props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
             if (cupboard.cupboardNumber > 5 && cupboard.cupboardNumber <= 11) {
               return (
                 <div key={i} className={`${cupboardClassName(cupboard, "bottom")}`}>
-                  {cupboardClassName(cupboard, "bottom")}
+                  {cupboard.cupboardNumber}
                 </div>
               )
             }
@@ -65,7 +56,7 @@ const MainlandWestCupboards = (
         )
       }
     </div>
-      </div>
+    </div>
     }
     </div>
   )

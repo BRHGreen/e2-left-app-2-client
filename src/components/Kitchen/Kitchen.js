@@ -9,7 +9,7 @@ import { convertCasing } from '../../utilities/casing'
 
 class Kitchen extends React.Component {
   state = {
-    kitchenView: 'mainlandWest',
+    kitchenView: 'wholeKitchen',
     mainlandWest: false,
     mainlandNorth: false,
     peninsula: false,
