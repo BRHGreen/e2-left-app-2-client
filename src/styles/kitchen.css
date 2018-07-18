@@ -64,7 +64,8 @@
     height: 200px; }
   .mainland-west__cupboard--sink {
     height: auto;
-    text-align: center; }
+    text-align: center;
+    border: none; }
 
 .mainland-west--3, .mainland-west--4, .mainland-west--5 {
   height: 70%; }
