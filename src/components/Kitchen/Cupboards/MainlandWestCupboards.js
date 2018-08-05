@@ -22,12 +22,10 @@ const MainlandWestCupboards = (
       : <div>
           <div className="mainland-west__cupboard--top--container">
             {props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
-                console.log('arr', arr[i])
-                console.log('arr + 1', arr[i + 1])
-                const cupboardFloor = Math.floor(cupboard.cupboardNumber)
+
                 if (
                   Math.floor(cupboard.cupboardNumber) <= 3
-                  && Math.floor(arr[i + 1].cupboardNumber) !== cupboardFloor
+                  && Math.floor(arr[i + 1].cupboardNumber) !== Math.floor(cupboard.cupboardNumber)
                 ) {
                 return (
                   <div key={i} className={`${cupboardClassName(cupboard, "top")}`}>
@@ -38,8 +36,12 @@ const MainlandWestCupboards = (
             }
           )
         }
-        <div className="mainland-west__cupboard mainland-west__cupboard--sink">sink</div>{props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
-            if (cupboard.cupboardNumber > 3 && cupboard.cupboardNumber <= 5) {
+        <div className="mainland-west__cupboard mainland-west__cupboard--sink">sink</div>{props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
+            if (
+              Math.floor(cupboard.cupboardNumber) > 3 
+              && Math.floor(cupboard.cupboardNumber) <= 5
+              && Math.floor(arr[i + 1].cupboardNumber) !== Math.floor(cupboard.cupboardNumber)
+            ) {
               return (
                 <div key={i} className={`${cupboardClassName(cupboard, "top")}`}>
                   {cupboard.cupboardNumber}
@@ -50,8 +52,14 @@ const MainlandWestCupboards = (
         )
       }
       </div>
-            <div className="mainland-west__cupboard--bottom--container">{props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
-            if (cupboard.cupboardNumber > 5 && cupboard.cupboardNumber <= 11) {
+            <div className="mainland-west__cupboard--bottom--container">{props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
+              console.log('****', arr[i + 1])
+            if (
+              arr[i + 1]
+              && Math.floor(cupboard.cupboardNumber) > 5
+              && Math.floor(cupboard.cupboardNumber) <= 11
+              && Math.floor(arr[i + 1].cupboardNumber) !== Math.floor(cupboard.cupboardNumber)
+            ) {
               return (
                 <div key={i} className={`${cupboardClassName(cupboard, "bottom")}`}>
                   {cupboard.cupboardNumber}
