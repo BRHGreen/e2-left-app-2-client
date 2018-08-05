@@ -8,7 +8,7 @@ export const Shelves = (props) => {
   console.log('getShelves', getShelves)
   return (
     getShelves.map((shelf, i) => (
-      <div className="shelf">{shelf.cupboardNumber}</div>
+      <div className={`kitchen-shelf kitchen-shelf--${getShelves.length}`}>{shelf.cupboardNumber}</div>
     ))
   )
 }

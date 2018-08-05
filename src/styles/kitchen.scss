@@ -91,6 +91,7 @@
   }
   &--3, &--4, &--5 {
     height: 70%;
+    vertical-align: top;
   }
   &--8, &--9, &--10, &--11 {
     height: 90%;
@@ -98,6 +99,12 @@
   }
 }
 
-.shelf {
-  border: 1px solid blue;
+.kitchen-shelf {
+  border: 1px solid lightgray;
+}
+.kitchen-shelf--2 {
+  height: 50%;
+}
+.kitchen-shelf--3 {
+  height: 33.33%;
 }
