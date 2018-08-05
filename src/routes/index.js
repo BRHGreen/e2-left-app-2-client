@@ -6,6 +6,7 @@ import Login from './auth/Login'
 import UserProfile from './UserProfile'
 import Navbar from '../components/Navbar'
 import Kitchen from '../components/Kitchen/Kitchen'
+import { MainlandWestCupboardsContainer } from '../components/Kitchen/Cupboards/MainlandWestCupboards'
 
 import {
   // history,
@@ -51,6 +52,7 @@ export default () =>(
       <PrivateRoute path="/" exact component={AppWithMutations} />
       <PrivateRoute path="/user-profile" exact component={UserProfile} />
       <PrivateRoute path="/kitchen" exact component={Kitchen} />
+      <PrivateRoute path="/kitchen/mainland-west" exact component={MainlandWestCupboardsContainer} />
       <Route path="/register" exact component={Register} />
       <Route path="/login" exact component={Login} />
     </div>

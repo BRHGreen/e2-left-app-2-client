@@ -30,7 +30,7 @@ class Cupboards extends React.Component {
           <div
             className={`kitchen__cupboards__${cupboard} ${this.props[cupboardName] ? "selected" : ""}`}
             key={i}
-            onClick={() => handleViewChange(cupboardName)}
+            onClick={() => handleViewChange(cupboard)}
           >
             {`kitchen__cupboards__${cupboard}`}
           </div>

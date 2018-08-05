@@ -17,11 +17,14 @@ class Kitchen extends React.Component {
   }
 
   handleViewChange(cupboard) {
-    const cupboardStateName = convertCasing(cupboard);
-    console.log('cupboardStateName', cupboardStateName)
-    console.log('this.state', this.state)
-    this.setState({ kitchenView: cupboardStateName })
+    this.props.history.push(`/kitchen/${cupboard}`)
   }
+  // handleViewChange(cupboard) {
+  //   const cupboardStateName = convertCasing(cupboard);
+  //   console.log('cupboardStateName', cupboardStateName)
+  //   console.log('this.state', this.state)
+  //   this.setState({ kitchenView: cupboardStateName })
+  // }
   
   render () {
     const { kitchenView } = this.state
@@ -37,6 +40,7 @@ class Kitchen extends React.Component {
             />
           ]
         }
+        {console.log('kitchen props:', this.props)}
         {kitchenView === 'mainlandWest' &&
           <MainlandWestCupboards />
         }
