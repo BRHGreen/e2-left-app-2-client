@@ -21,8 +21,14 @@ const MainlandWestCupboards = (
       ? <div>Loading</div>
       : <div>
           <div className="mainland-west__cupboard--top--container">
-            {props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i) => {
-              if (cupboard.cupboardNumber <= 3) {
+            {props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
+                console.log('arr', arr[i])
+                console.log('arr + 1', arr[i + 1])
+                const cupboardFloor = Math.floor(cupboard.cupboardNumber)
+                if (
+                  Math.floor(cupboard.cupboardNumber) <= 3
+                  && Math.floor(arr[i + 1].cupboardNumber) !== cupboardFloor
+                ) {
                 return (
                   <div key={i} className={`${cupboardClassName(cupboard, "top")}`}>
                     {cupboard.cupboardNumber}
