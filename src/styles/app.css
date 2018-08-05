@@ -123,3 +123,6 @@ nav {
 .mainland-west--8, .mainland-west--9, .mainland-west--10, .mainland-west--11 {
   height: 90%;
   vertical-align: bottom; }
+
+.shelf {
+  border: 1px solid blue; }
