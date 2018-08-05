@@ -5,6 +5,7 @@ query  getCupboards {
   getCupboards {
     landMass
     cupboardNumber
+    owner
   }
 }
 `;
