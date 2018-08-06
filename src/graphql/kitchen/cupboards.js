@@ -6,6 +6,9 @@ query  getCupboards {
     landMass
     cupboardNumber
     owner
+    user {
+      username
+    }
   }
 }
 `;
@@ -15,6 +18,9 @@ query  getMainlandWestCupboards {
   getMainlandWestCupboards {
     landMass
     cupboardNumber
+    user {
+      username
+    }
   }
 }
 `;
@@ -24,6 +30,9 @@ query  getMainlandEastCupboards {
   getMainlandEastCupboards {
     landMass
     cupboardNumber
+    user {
+      username
+    }
   }
 }
 `;

@@ -5,10 +5,15 @@ export const Shelves = (props) => {
   const getShelves = props.allCupboards.filter(cupboard => {
     return Math.floor(cupboard.cupboardNumber) === Math.floor(props.cupboard.cupboardNumber)
   })
-  console.log('getShelves', getShelves)
   return (
     getShelves.map((shelf, i) => (
-      <div className={`kitchen-shelf kitchen-shelf--${getShelves.length}`}>{shelf.cupboardNumber}</div>
+      <div 
+        key={i}
+        className={`kitchen-shelf kitchen-shelf--${getShelves.length}`}
+        >
+        {shelf.cupboardNumber}
+        {shelf.user && <p>{shelf.user.username}</p>}
+      </div>
     ))
   )
 }
