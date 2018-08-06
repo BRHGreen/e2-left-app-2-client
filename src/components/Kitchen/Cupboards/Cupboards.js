@@ -45,7 +45,7 @@ class Cupboards extends React.Component {
 }
 
 const CupboardsWithQueriesAndMutations = compose(
-  graphql(allCupboards, 
+  graphql(allCupboards,
     { name: "allCupboards" }
   ),
 )(Cupboards)

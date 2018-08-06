@@ -36,3 +36,9 @@ query  getMainlandEastCupboards {
   }
 }
 `;
+
+export const updateOwner = gql`
+mutation($id: Int!, $newOwner: Int!) {
+  updateKitchenCupboard(id: $id, owner: $newOwner )
+}
+`

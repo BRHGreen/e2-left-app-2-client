@@ -1,19 +1,44 @@
 import React from 'react';
 
-export const Shelves = (props) => {
-  console.log('props', props)
-  const getShelves = props.allCupboards.filter(cupboard => {
-    return Math.floor(cupboard.cupboardNumber) === Math.floor(props.cupboard.cupboardNumber)
+export class Shelves extends React.Component {
+  state = {
+    isEditing: false,
+  }
+  getShelves = this.props.allCupboards.filter(cupboard => {
+    return Math.floor(cupboard.cupboardNumber) === Math.floor(this.props.cupboard.cupboardNumber)
   })
-  return (
-    getShelves.map((shelf, i) => (
-      <div 
-        key={i}
-        className={`kitchen-shelf kitchen-shelf--${getShelves.length}`}
-        >
-        {shelf.cupboardNumber}
-        {shelf.user && <p>{shelf.user.username}</p>}
-      </div>
-    ))
-  )
+
+  handleEditing = () => {
+    this.setState({ isEditing: !this.state.isEditing })
+    console.log('state', this.state)
+  }
+
+  render () {
+    return (
+      this.getShelves.map((shelf, i) => (
+        <div 
+          key={i}
+          className={`kitchen-shelf kitchen-shelf--${this.getShelves.length}`}
+          >
+          {shelf.cupboardNumber}
+          {shelf.user &&
+          <div>
+            {!this.state.isEditing
+             ? [
+              <span>{shelf.user.username}</span>,
+              <br/>,
+              <span
+               onClick={() => this.handleEditing()} 
+              >
+               EDIT
+              </span>
+            ]
+            : <div>bleep</div>
+            }
+          </div>
+          }
+        </div>
+      ))
+    )
+  }
 }
