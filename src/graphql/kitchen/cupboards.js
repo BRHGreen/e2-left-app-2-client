@@ -3,6 +3,7 @@ import gql from 'graphql-tag'
 export const allCupboards = gql`
 query  getCupboards {
   getCupboards {
+    id
     landMass
     cupboardNumber
     owner
@@ -16,6 +17,7 @@ query  getCupboards {
 export const getMainlandWestCupboards = gql`
 query  getMainlandWestCupboards {
   getMainlandWestCupboards {
+    id
     landMass
     cupboardNumber
     user {
@@ -28,6 +30,7 @@ query  getMainlandWestCupboards {
 export const getMainlandEastCupboards = gql`
 query  getMainlandEastCupboards {
   getMainlandEastCupboards {
+    id
     landMass
     cupboardNumber
     user {

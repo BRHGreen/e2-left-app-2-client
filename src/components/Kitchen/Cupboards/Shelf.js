@@ -17,12 +17,20 @@ export class Shelf extends React.Component {
     console.log(this.state)
   }
 
+  handleSubmit = async (e) => {
+    console.log('id?', this.props.shelf.id)
+    e.preventDefault()
+    const response = await this.props.updateOwner({
+      vaiables: { id: this.props.shelf.id, newOwner: this.state.owner }
+    })
+  }
+
   render() {
     const {
       shelf,
       className,
     } = this.props
-
+    console.log("/////", this.props)
     return (
         <div
           className={className}
@@ -40,13 +48,13 @@ export class Shelf extends React.Component {
                     EDIT
               </span>
                 ]
-                : <form>
+                : <form onSubmit={this.handleSubmit}>
                     <input 
                       value={this.state.owner}
                       onChange={(e) => this.onChangeHandler(e)}
                     />
-                    <span onClick={this.handleEditing}>cancel</span>
-                    <span>submit</span>
+                  <button onClick={this.handleEditing}>cancel</button>
+                  <button>submit</button>
                   </form>
 
               }

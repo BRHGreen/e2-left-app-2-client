@@ -16,6 +16,8 @@ class MainlandWestCupboards extends React.Component {
   }
 
   render () {
+    console.log(">>>>",this.props)
+    const { mainlandWestCupboards } = this.props
     return (
       <div className="mainland-west-cupboards__container">
         {
@@ -23,7 +25,7 @@ class MainlandWestCupboards extends React.Component {
             ? <div>Loading</div>
             : <div>
               <div className="mainland-west__cupboard--top--container">
-                {this.props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
+                {mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
                   if (
                     Math.floor(cupboard.cupboardNumber) <= 3
                     && Math.floor(arr[i + 1].cupboardNumber) !== Math.floor(cupboard.cupboardNumber)
@@ -33,6 +35,7 @@ class MainlandWestCupboards extends React.Component {
                         <Shelves
                           allCupboards={arr}
                           cupboard={cupboard}
+                          updateOwner={this.props.updateOwner}
                         />
                       </div>
                     )
@@ -48,7 +51,7 @@ class MainlandWestCupboards extends React.Component {
                   ) {
                     return (
                       <div key={i} className={`${this.cupboardClassName(cupboard, "top")}`}>
-                        <Shelves allCupboards={arr} cupboard={cupboard} />
+                        <Shelves allCupboards={arr} cupboard={cupboard} updateOwner={this.props.updateOwner} />
                       </div>
                     )
                   }
@@ -60,7 +63,11 @@ class MainlandWestCupboards extends React.Component {
                 if (!arr[i + 1]) {
                   return (
                     <div key={i} className={`${this.cupboardClassName(cupboard, "bottom")}`}>
-                      <Shelves allCupboards={arr} cupboard={cupboard} />
+                      <Shelves 
+                        allCupboards={arr}
+                        cupboard={cupboard}
+                        updateOwner={this.props.updateOwner}
+                      />
                     </div>
                   )
                 }
