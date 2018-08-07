@@ -3,6 +3,7 @@ import React from 'react';
 export class Shelf extends React.Component {
   state = {
     isEditing: false,
+    shelfOwner: this.props.owner,
   }
 
   handleEditing = (cupboardNumber) => {
@@ -11,37 +12,45 @@ export class Shelf extends React.Component {
     console.log('state', this.state)
   }
 
+  onChangeHandler(e) {
+    this.setState({ shelfOwner: e.target.value })
+    console.log(this.state)
+  }
+
   render() {
     const {
-      key,
-      isEditing,
-      handleEditing,
-      owner,
       shelf,
       className,
     } = this.props
+
     return (
         <div
-          key={key}
           className={className}
         >
-          {shelf.cupboardNumber}
-          {shelf.user &&
+          <span className="kitchen-shelf--number">{shelf.cupboardNumber}</span>
             <div>
               {!this.state.isEditing
                 ? [
-                  <span>{owner}</span>,
-                  <br />,
+                  <span key="1">{this.props.owner}</span>,
+                  <br key="2"/>,
                   <span
+                    key="3"
                     onClick={() => this.handleEditing(shelf.cupboardNumber)}
                   >
                     EDIT
               </span>
                 ]
-                : <div>bleep</div>
+                : <form>
+                    <input 
+                      value={this.state.owner}
+                      onChange={(e) => this.onChangeHandler(e)}
+                    />
+                    <span onClick={this.handleEditing}>cancel</span>
+                    <span>submit</span>
+                  </form>
+
               }
             </div>
-          }
         </div>
 
     )

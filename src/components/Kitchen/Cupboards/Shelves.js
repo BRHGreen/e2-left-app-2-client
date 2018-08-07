@@ -1,25 +1,17 @@
 import React from 'react';
 import { Shelf } from './Shelf'
-export class Shelves extends React.Component {
-  
-  getShelves = this.props.allCupboards.filter(cupboard => {
-    return Math.floor(cupboard.cupboardNumber) === Math.floor(this.props.cupboard.cupboardNumber)
+
+export const Shelves = (props) => {
+  const getShelves = props.allCupboards.filter(cupboard => {
+    return Math.floor(cupboard.cupboardNumber) === Math.floor(props.cupboard.cupboardNumber)
   })
-
-  
-
-  render () {
-    return (
-      this.getShelves.map((shelf, i) => (
-      console.log('shelf', shelf),
+  return getShelves.map((shelf, i) => (
         <Shelf
           key={i}
-          owner={shelf.user ? shelf.user.username : "not currently occupied"}
-          className={`kitchen-shelf kitchen-shelf--${this.getShelves.length}`}
+          owner={shelf.user ? shelf.user.username : "unoccupied"}
+          className={`kitchen-shelf kitchen-shelf--${getShelves.length}`}
           cupboardNumber={shelf.cupboardNumber}
           shelf={shelf}
         />
       ))
-    )
-  }
 }

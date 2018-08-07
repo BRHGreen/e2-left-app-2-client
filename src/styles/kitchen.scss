@@ -102,6 +102,13 @@
 
 .kitchen-shelf {
   border: 1px solid lightgray;
+  position: relative;
+  &--number {
+    position: absolute;
+    right: $padding-sm;
+    bottom: $padding-sm;
+    font-size: 0.6em;
+  }
 }
 .kitchen-shelf--2 {
   height: 50%;

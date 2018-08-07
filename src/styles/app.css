@@ -127,7 +127,13 @@ nav {
   vertical-align: bottom; }
 
 .kitchen-shelf {
-  border: 1px solid lightgray; }
+  border: 1px solid lightgray;
+  position: relative; }
+  .kitchen-shelf--number {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 0.6em; }
 
 .kitchen-shelf--2 {
   height: 50%; }
