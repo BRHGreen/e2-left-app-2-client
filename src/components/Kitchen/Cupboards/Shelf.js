@@ -3,25 +3,25 @@ import React from 'react';
 export class Shelf extends React.Component {
   state = {
     isEditing: false,
-    shelfOwner: this.props.owner,
+    newOwner: null,
   }
 
-  handleEditing = (cupboardNumber) => {
-    console.log(cupboardNumber)
+  handleEditing = () => {
+
     this.setState({ isEditing: !this.state.isEditing })
-    console.log('state', this.state)
   }
 
   onChangeHandler(e) {
-    this.setState({ shelfOwner: e.target.value })
-    console.log(this.state)
+    e.preventDefault()
+    console.log("e",e.target.value)
+    this.setState({ newOwner: e.target.value })
+    console.log("this.state", this.state.newOwner)
   }
 
   handleSubmit = async (e) => {
-    console.log('id?', this.props.shelf.id)
     e.preventDefault()
     const response = await this.props.updateOwner({
-      variables: { id: this.props.shelf.id, newOwner: this.state.owner }
+      variables: { id: this.props.shelf.id, newOwner: this.state.newOwner }
     })
   }
 
@@ -31,9 +31,11 @@ export class Shelf extends React.Component {
       className,
       allUsers,
     } = this.props
-    console.log("/////", this.props)
+
     return (
-        <div
+      this.props.loading
+        ? <div>Loading</div>
+        : <div
           className={className}
         >
           <span className="kitchen-shelf--number">{shelf.cupboardNumber}</span>
@@ -44,22 +46,22 @@ export class Shelf extends React.Component {
                   <br key="2"/>,
                   <span
                     key="3"
-                    onClick={() => this.handleEditing(shelf.cupboardNumber)}
+                    onClick={() => this.handleEditing()}
                   >
                     EDIT
               </span>
                 ]
                 : <form onSubmit={this.handleSubmit}>
-                    {/* <input 
-                      value={this.state.owner}
-                      onChange={(e) => this.onChangeHandler(e)}
-                    /> */}
-
-                  <select>
+                <select onChange={(e) => this.onChangeHandler(e)}>
                     {
+                      allUsers &&
                       allUsers.map((user, i) => (
-                    console.log('user', user),
-                        <option>{user.username}</option>
+                    <option
+                      key={i}
+                      value={user.id}
+                    >
+                      {user.username}
+                    </option>
                         )
                       )
                     }
