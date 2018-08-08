@@ -14,6 +14,7 @@ export const Shelves = (props) => {
           cupboardNumber={shelf.cupboardNumber}
           shelf={shelf}
           updateOwner={props.updateOwner}
+          allUsers={props.allUsers}
         />
       ))
 }

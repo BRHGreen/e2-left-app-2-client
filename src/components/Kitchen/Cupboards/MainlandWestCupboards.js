@@ -1,6 +1,7 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo'
 import { getMainlandWestCupboards, updateOwner } from '../../../graphql/kitchen/cupboards'
+import { allUsers } from '../../../graphql/user'
 import { camelCaseToDash } from '../../../utilities/casing'
 import { Shelves } from './Shelves'
 
@@ -17,7 +18,7 @@ class MainlandWestCupboards extends React.Component {
 
   render () {
     console.log(">>>>",this.props)
-    const { mainlandWestCupboards } = this.props
+    const { mainlandWestCupboards, allUsers: { allUsers } } = this.props
     return (
       <div className="mainland-west-cupboards__container">
         {
@@ -36,6 +37,7 @@ class MainlandWestCupboards extends React.Component {
                           allCupboards={arr}
                           cupboard={cupboard}
                           updateOwner={this.props.updateOwner}
+                          allUsers={allUsers}
                         />
                       </div>
                     )
@@ -51,7 +53,12 @@ class MainlandWestCupboards extends React.Component {
                   ) {
                     return (
                       <div key={i} className={`${this.cupboardClassName(cupboard, "top")}`}>
-                        <Shelves allCupboards={arr} cupboard={cupboard} updateOwner={this.props.updateOwner} />
+                        <Shelves
+                          allCupboards={arr}
+                          cupboard={cupboard}
+                          updateOwner={this.props.updateOwner}
+                          allUsers={allUsers}
+                        />
                       </div>
                     )
                   }
@@ -67,6 +74,7 @@ class MainlandWestCupboards extends React.Component {
                         allCupboards={arr}
                         cupboard={cupboard}
                         updateOwner={this.props.updateOwner}
+                        allUsers={allUsers}
                       />
                     </div>
                   )
@@ -100,5 +108,8 @@ export const MainlandWestCupboardsContainer = compose(
   ),
   graphql(updateOwner,
     { name: "updateOwner" }
+  ),
+  graphql(allUsers,
+    { name: "allUsers" }
   ),
 )(MainlandWestCupboards)
