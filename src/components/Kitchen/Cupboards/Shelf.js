@@ -50,20 +50,21 @@ export class Shelf extends React.Component {
               </span>
                 ]
                 : <form onSubmit={this.handleSubmit}>
-                    <select onChange={(e) => this.onChangeHandler(e)}>
+                <select onChange={(e) => this.onChangeHandler(e)} defaultValue={shelf.user.id}>
                       {
                         allUsers &&
                         allUsers.map((user, i) => (
                       <option
                         key={i}
                         value={user.id}
-                        selected={user.id === this.props.shelf.user.id}
                       >
                         {user.username}
                       </option>
                           )
                         )
                       }
+                      <option>unoccupied</option>
+                      <option>communal</option>
                     </select>
                   <button onClick={this.handleEditing}>cancel</button>
                   <button>submit</button>
