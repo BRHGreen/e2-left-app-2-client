@@ -36,7 +36,6 @@ class UserProfile extends React.Component {
             interests,
             bio,
         } = this.state
-        console.log('profile:', getUser)
         return (
             <div className="page-content">
                 <h3>Your Profile:</h3>

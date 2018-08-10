@@ -20,7 +20,6 @@ class Cupboards extends React.Component {
       'island',
     ]
     const { handleViewChange } = this.props
-    console.log('cupboard props',this.props)
     return (
       <div className="kitchen__cupboards">
       {

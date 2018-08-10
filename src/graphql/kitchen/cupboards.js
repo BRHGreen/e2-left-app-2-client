@@ -9,6 +9,7 @@ query  getCupboards {
     owner
     user {
       username
+      id
     }
   }
 }
@@ -22,6 +23,7 @@ query  getMainlandWestCupboards {
     cupboardNumber
     user {
       username
+      id
     }
   }
 }
@@ -35,6 +37,7 @@ query  getMainlandEastCupboards {
     cupboardNumber
     user {
       username
+      id
     }
   }
 }

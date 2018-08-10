@@ -17,7 +17,6 @@ class MainlandWestCupboards extends React.Component {
   }
 
   render () {
-    console.log(">>>>",this.props)
     const { mainlandWestCupboards, allUsers: { allUsers } } = this.props
     return (
       <div className="mainland-west-cupboards__container">
@@ -86,7 +85,12 @@ class MainlandWestCupboards extends React.Component {
                 ) {
                   return (
                     <div key={i} className={`${this.cupboardClassName(cupboard, "bottom")}`}>
-                      <Shelves allCupboards={arr} cupboard={cupboard} />
+                      <Shelves 
+                        allCupboards={arr}
+                        cupboard={cupboard}
+                        updateOwner={this.props.updateOwner}
+                        allUsers={allUsers}
+                      />
                     </div>
                   )
                 }
