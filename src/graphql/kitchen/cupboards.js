@@ -41,7 +41,7 @@ query  getMainlandEastCupboards {
 `;
 
 export const updateOwner = gql`
-mutation($id: Int!, $newOwner: Int!) {
-  updateKitchenCupboard(id: $id, owner: $newOwner )
+mutation($id: Int!, $owner: Int!) {
+  updateKitchenCupboard(id: $id, owner: $owner)
 }
 `

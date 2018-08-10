@@ -21,8 +21,9 @@ export class Shelf extends React.Component {
   handleSubmit = async (e) => {
     e.preventDefault()
     const response = await this.props.updateOwner({
-      variables: { id: this.props.shelf.id, newOwner: this.state.newOwner }
+      variables: { id: this.props.shelf.id, owner: this.state.newOwner }
     })
+    console.log('response', response)
   }
 
   render() {
