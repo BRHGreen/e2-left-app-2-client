@@ -37,7 +37,8 @@ class MainlandWestCupboards extends React.Component {
                           cupboard={cupboard}
                           updateOwner={this.props.updateOwner}
                           allUsers={allUsers}
-                        />
+                          mainlandWestCupboards={mainlandWestCupboards}
+                      />
                       </div>
                     )
                   }
