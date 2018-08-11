@@ -36,55 +36,45 @@ class UserProfile extends React.Component {
         const { username } = this.state
         const response = await this.props.updateUser({
             variables: { id: this.props.user.getUser.id, newUsername: username },
-            refetchQueries: [{
-                query: getUser
-            }]
         })
         this.props.updateUserProfile({
-            variables: { 
-              id: this.props.user.getUser.userProfile.id,
-              newAge: this.state.age,
-            },
-            refetchQueries: [{
-                query: getUser
-            }]
+          variables: { 
+            id: this.props.user.getUser.userProfile.id,
+            newAge: this.state.age,
+          },
         })
+        this.props.user.refetch()
         this.setState({ isEditing: !this.state.isEditing })
     };
 
     render () {
         const { user: { getUser } } = this.props
-        const {
-            isEditing,
-            username,
-            age,
-            occupation,
-            interests,
-            bio,
-        } = this.state
+        const { isEditing } = this.state
         return (
             <div className="page-content">
-                <h3>Your Profile:</h3>
-                <button 
-                    className="btn"
-                    onClick={()=> this.setState({ isEditing: !isEditing })}
-                    >Edit
-                    </button>
-                {getUser &&
+              <h3>Your Profile:</h3>
+              {getUser &&
                 <div>
                 {!isEditing
-                    ? <ul>
-                        <li>Username: {getUser.username}</li>
-                        {
-                          getUser.userProfile && Object.keys(getUser.userProfile)
-                            .map((fieldLable, i) => {
-                              if (!fieldLable.includes('_') && !fieldLable.includes('id')) {
-                                return <li key={i}>{`${fieldLable}: ${getUser.userProfile[fieldLable] || ""}`}</li>
-                              }
-                            }
-                          )
-                      }
-                    </ul>
+                    ? <div>
+                        <ul>
+                            <li>Username: {getUser.username}</li>
+                            {
+                              getUser.userProfile && Object.keys(getUser.userProfile)
+                                .map((fieldLable, i) => {
+                                  if (!fieldLable.includes('_') && !fieldLable.includes('id')) {
+                                    return <li key={i}>{`${fieldLable}: ${getUser.userProfile[fieldLable] || ""}`}</li>
+                                  }
+                                }
+                              )
+                          }
+                        </ul>
+                        <button
+                          className="btn"
+                          onClick={() => this.setState({ isEditing: !isEditing })}
+                        >Edit
+                      </button>
+                    </div>
                     : <form onSubmit={this.updateUser}>
                         <label htmlFor="username">Username:</label>
                         <input
@@ -113,35 +103,6 @@ class UserProfile extends React.Component {
                             }
                           }
                         )}
-                        {/* <label htmlFor="age">Age:</label>
-                        <input
-                            name="age"
-                            id="age"
-                            onChange={this.onChange}
-                            value={this.state.age}
-                            placeholder="age"
-                        />
-                        <label htmlFor="occupation">Occupation:</label>
-                        <input
-                            name="occupation"
-                            id="occupation"
-                            onChange={this.onChange}
-                            // placeholder={getUser.userProfile.occupation}
-                        />
-                        <label htmlFor="interests">Interests:</label>
-                        <input
-                            name="interests"
-                            id="interests"
-                            onChange={this.onChange}
-                            // placeholder={getUser.userProfile.interests}
-                        />
-                        <label htmlFor="bio">Bio:</label>
-                        <input
-                            name="bio"
-                            id="bio"
-                            onChange={this.onChange}
-                            // placeholder={getUser.userProfile.bio}
-                        /> */}
                         <button className="btn">Done</button>
                     </form>
                     }
