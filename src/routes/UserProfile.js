@@ -17,9 +17,11 @@ class UserProfile extends React.Component {
     }
     updateUser = async (event) => {
         event.preventDefault()
+        console.log('getUser', this.props.user.getUser.id)
         const { newUsername } = this.state
+        console.log("newUsername", newUsername)
         const response = await this.props.updateUser({
-            variables: { id: 1, newUsername },
+            variables: { id: this.props.user.getUser.id, newUsername },
             refetchQueries: [{
                 query: getUser
             }]
@@ -49,10 +51,12 @@ class UserProfile extends React.Component {
                 {!isEditing
                     ? <ul>
                         <li>Username: {getUser.username}</li>
-                        <li>Age: {getUser.userProfile.age}</li>
-                        <li>Occupation: {getUser.userProfile.occupation}</li>
-                        <li>Interests: {getUser.userProfile.interests}</li>
-                        <li>Bio: {getUser.userProfile.bio}</li>
+                        {
+                          getUser.userProfile && getUser.userProfile.map((profileField, i) => {
+                          console.log('profileField', profileField)
+                          return <li>Age: {getUser.userProfile.age}</li>
+                        })
+                        }
                     </ul>   
                     : <form onSubmit={this.updateUser}>
                         <label htmlFor="username">Username:</label>
@@ -60,35 +64,35 @@ class UserProfile extends React.Component {
                             name="newUsername"
                             id="username"
                             onChange={this.onChange}
-                            placeholder={getUser.username}
+                            // placeholder={getUser.username}
                         />
                         <label htmlFor="age">Age:</label>
                         <input
                             name="age"
                             id="age"
                             onChange={this.onChange}
-                            placeholder={getUser.userProfile.age}
+                            // placeholder={getUser.userProfile.age}
                         />
                         <label htmlFor="occupation">Occupation:</label>
                         <input
                             name="occupation"
                             id="occupation"
                             onChange={this.onChange}
-                            placeholder={getUser.userProfile.occupation}
+                            // placeholder={getUser.userProfile.occupation}
                         />
                         <label htmlFor="interests">Interests:</label>
                         <input
                             name="interests"
                             id="interests"
                             onChange={this.onChange}
-                            placeholder={getUser.userProfile.interests}
+                            // placeholder={getUser.userProfile.interests}
                         />
                         <label htmlFor="bio">Bio:</label>
                         <input
                             name="bio"
                             id="bio"
                             onChange={this.onChange}
-                            placeholder={getUser.userProfile.bio}
+                            // placeholder={getUser.userProfile.bio}
                         />
                         <button className="btn">Done</button>
                     </form>

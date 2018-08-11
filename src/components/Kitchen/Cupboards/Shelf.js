@@ -7,6 +7,7 @@ export class Shelf extends React.Component {
   }
 
   handleEditing = () => {
+    console.log('handleEditing')
     this.setState({ isEditing: !this.state.isEditing })
   }
 
@@ -51,14 +52,15 @@ export class Shelf extends React.Component {
                     EDIT
               </span>
                 ]
-                : <form onSubmit={this.handleSubmit}>
-                <select onChange={(e) => this.onChangeHandler(e)} defaultValue={shelf.user.id}>
+              : <form onSubmit={this.handleSubmit}>
+                <select onChange={(e) => this.onChangeHandler(e)} defaultValue={shelf.user && shelf.user.id}>
                       {
                         allUsers &&
                         allUsers.map((user, i) => (
                       <option
                         key={i}
                         value={user.id}
+                        onBlur={this.handleEditing}
                       >
                         {user.username}
                       </option>

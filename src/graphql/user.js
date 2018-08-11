@@ -51,6 +51,6 @@ mutation($username: String!, $email: String!, $password: String!) {
 
 export const updateUser = gql`
 mutation($id: Int!, $newUsername: String) {
-  updateUser(newUsername: $newUsername)
+  updateUser(id: $id, newUsername: $newUsername)
 }
 `;
