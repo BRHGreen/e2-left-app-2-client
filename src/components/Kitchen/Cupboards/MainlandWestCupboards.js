@@ -6,7 +6,6 @@ import { camelCaseToDash } from '../../../utilities/casing'
 import { Shelves } from './Shelves'
 
 class MainlandWestCupboards extends React.Component {
-  
 
   cupboardClassName ({ landMass, cupboardNumber }, position) {
     return (
