@@ -38,9 +38,12 @@ class UserProfile extends React.Component {
             variables: { id: this.props.user.getUser.id, newUsername: username },
         })
         this.props.updateUserProfile({
-          variables: { 
+          variables: {
             id: this.props.user.getUser.userProfile.id,
             newAge: this.state.age,
+            newOccupation: this.state.occupation,
+            newInterests: this.state.interests,
+            newBio: this.state.bio,
           },
         })
         this.props.user.refetch()
@@ -58,7 +61,7 @@ class UserProfile extends React.Component {
                 {!isEditing
                     ? <div>
                         <ul>
-                            <li>Username: {getUser.username}</li>
+                          <li>Username: {getUser.username}</li>
                             {
                               getUser.userProfile && Object.keys(getUser.userProfile)
                                 .map((fieldLable, i) => {
@@ -67,7 +70,7 @@ class UserProfile extends React.Component {
                                   }
                                 }
                               )
-                          }
+                            }
                         </ul>
                         <button
                           className="btn"
