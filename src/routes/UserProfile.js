@@ -1,5 +1,5 @@
 import React from 'react';
-import { getUser, updateUser } from '../graphql/user'
+import { getUser, updateUser, updateUserProfile } from '../graphql/user'
 import { graphql, compose } from 'react-apollo'
 
 class UserProfile extends React.Component {
@@ -27,15 +27,24 @@ class UserProfile extends React.Component {
 
     onChange = (e) => {
         const { name, value } = e.target
-        console.log('value', value)
-        console.log('name', name)
         this.setState({ [name]: value })
     }
-    updateUser = async (event) => {
-        event.preventDefault()
+    
+    
+    updateUser = async (e) => {
+        e.preventDefault()
         const { username } = this.state
         const response = await this.props.updateUser({
             variables: { id: this.props.user.getUser.id, newUsername: username },
+            refetchQueries: [{
+                query: getUser
+            }]
+        })
+        this.props.updateUserProfile({
+            variables: { 
+              id: this.props.user.getUser.userProfile.id,
+              newAge: this.state.age,
+            },
             refetchQueries: [{
                 query: getUser
             }]
@@ -44,8 +53,6 @@ class UserProfile extends React.Component {
     };
 
     render () {
-      console.log('state', this.state)
-
         const { user: { getUser } } = this.props
         const {
             isEditing,
@@ -70,15 +77,15 @@ class UserProfile extends React.Component {
                         <li>Username: {getUser.username}</li>
                         {
                           getUser.userProfile && Object.keys(getUser.userProfile)
-                            .filter(key => !key.includes('_'))
-                            .map((fieldLable, i) => (
-                              <li key={i}>{`${fieldLable}: ${getUser.userProfile[fieldLable] || ""}`}</li>
-                            )
+                            .map((fieldLable, i) => {
+                              if (!fieldLable.includes('_') && !fieldLable.includes('id')) {
+                                return <li key={i}>{`${fieldLable}: ${getUser.userProfile[fieldLable] || ""}`}</li>
+                              }
+                            }
                           )
                       }
-                    </ul>   
+                    </ul>
                     : <form onSubmit={this.updateUser}>
-                    console.log(getUser)
                         <label htmlFor="username">Username:</label>
                         <input
                             name="username"
@@ -87,7 +94,26 @@ class UserProfile extends React.Component {
                             value={this.state.username}
                             placeholder="username"
                         />
-                        <label htmlFor="age">Age:</label>
+                        {
+                          getUser.userProfile && Object.keys(getUser.userProfile)
+                            .map((inputContent, i) => {
+                              if (!inputContent.includes('_') && !inputContent.includes('id')) {
+                              console.log('inputContent', inputContent)
+                              return [
+                                <label key={`label-${i}`} htmlFor={inputContent}>{inputContent}</label>,
+                                <input
+                                  key={`input-${i}`}
+                                  name={inputContent}
+                                  id={inputContent}
+                                  onChange={(e) => this.onChange (e)}
+                                  value={this.state[inputContent]}
+                                  placeholder={inputContent}
+                                />
+                              ]
+                            }
+                          }
+                        )}
+                        {/* <label htmlFor="age">Age:</label>
                         <input
                             name="age"
                             id="age"
@@ -115,7 +141,7 @@ class UserProfile extends React.Component {
                             id="bio"
                             onChange={this.onChange}
                             // placeholder={getUser.userProfile.bio}
-                        />
+                        /> */}
                         <button className="btn">Done</button>
                     </form>
                     }
@@ -128,7 +154,8 @@ class UserProfile extends React.Component {
 
 const UserProfilerWithMutations = compose(
     graphql(getUser, { name: "user" }),
-    graphql(updateUser, { name: "updateUser" })
+    graphql(updateUser, { name: "updateUser" }),
+    graphql(updateUserProfile, { name: "updateUserProfile" })
 )(UserProfile)
 
 export default UserProfilerWithMutations;

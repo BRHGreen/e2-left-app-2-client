@@ -17,6 +17,7 @@ export const getUser = gql`
       username
       email
       userProfile {
+        id
         age
         occupation
         interests
@@ -52,5 +53,22 @@ mutation($username: String!, $email: String!, $password: String!) {
 export const updateUser = gql`
 mutation($id: Int!, $newUsername: String) {
   updateUser(id: $id, newUsername: $newUsername)
+}
+`;
+export const updateUserProfile = gql`
+mutation(
+  $id: Int!,
+  $newAge: Int,
+  $newOccupation: String,
+  $newInterests: String,
+  $newBio: String,
+) {
+  updateUserProfile(
+    id: $id,
+    newAge: $newAge,
+    newOccupation: $newOccupation,
+    newInterests: $newInterests,
+    newBio: $newBio,
+  )
 }
 `;
