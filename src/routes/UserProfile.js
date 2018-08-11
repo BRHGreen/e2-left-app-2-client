@@ -53,7 +53,6 @@ class UserProfile extends React.Component {
     render () {
         const { user: { getUser } } = this.props
         const { isEditing } = this.state
-      console.log('getUser', getUser)
         return (
             <div className="page-content">
               <h3>Your Profile:</h3>
@@ -74,6 +73,7 @@ class UserProfile extends React.Component {
                             }
                         </ul>
                         <ul>
+                        <li><b>Kitchen Cupboards:</b></li>
                           {
                             getUser.kitchenCupboard.map((kitchenCupboard, i) => (
                               <li>{kitchenCupboard.cupboardNumber}</li>
@@ -99,7 +99,6 @@ class UserProfile extends React.Component {
                           getUser.userProfile && Object.keys(getUser.userProfile)
                             .map((inputContent, i) => {
                               if (!inputContent.includes('_') && !inputContent.includes('id')) {
-                              console.log('inputContent', inputContent)
                               return [
                                 <label key={`label-${i}`} htmlFor={inputContent}>{inputContent}</label>,
                                 <input
@@ -115,6 +114,7 @@ class UserProfile extends React.Component {
                           }
                         )}
                         <button className="btn">Done</button>
+                        <button className="btn" onClick={() => this.setState({ isEditing: !this.state.isEditing })} >Cancel</button>
                     </form>
                     }
                 </div>
