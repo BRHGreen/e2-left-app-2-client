@@ -41,6 +41,7 @@ class MainlandWestCupboards extends React.Component {
                       </div>
                     )
                   }
+                  return null
                 }
                 )
                 }
@@ -61,6 +62,7 @@ class MainlandWestCupboards extends React.Component {
                       </div>
                     )
                   }
+                  return null
                 }
                 )
                 }
@@ -94,6 +96,7 @@ class MainlandWestCupboards extends React.Component {
                     </div>
                   )
                 }
+                return null
               }
               )
               }

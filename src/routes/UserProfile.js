@@ -34,7 +34,7 @@ class UserProfile extends React.Component {
     updateUser = async (e) => {
         e.preventDefault()
         const { username } = this.state
-        const response = await this.props.updateUser({
+        await this.props.updateUser({
             variables: { id: this.props.user.getUser.id, newUsername: username },
         })
         this.props.updateUserProfile({
@@ -68,6 +68,7 @@ class UserProfile extends React.Component {
                                   if (!fieldLable.includes('_') && !fieldLable.includes('id')) {
                                     return <li key={i}>{`${fieldLable}: ${getUser.userProfile[fieldLable] || ""}`}</li>
                                   }
+                                  return null
                                 }
                               )
                             }
@@ -76,7 +77,7 @@ class UserProfile extends React.Component {
                         <li><b>Kitchen Cupboards:</b></li>
                           {
                             getUser.kitchenCupboard.map((kitchenCupboard, i) => (
-                              <li>{kitchenCupboard.cupboardNumber}</li>
+                              <li key={i}>{kitchenCupboard.cupboardNumber}</li>
                             ))
                           }
                         </ul>
@@ -111,6 +112,7 @@ class UserProfile extends React.Component {
                                 />
                               ]
                             }
+                            return null
                           }
                         )}
                         <button className="btn">Done</button>
