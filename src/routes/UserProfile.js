@@ -17,16 +17,14 @@ class UserProfile extends React.Component {
     }
     updateUser = async (event) => {
         event.preventDefault()
-        console.log('getUser', this.props.user.getUser.id)
         const { newUsername } = this.state
-        console.log("newUsername", newUsername)
         const response = await this.props.updateUser({
             variables: { id: this.props.user.getUser.id, newUsername },
             refetchQueries: [{
                 query: getUser
             }]
         })
-        this.props.history.push('/');
+        this.setState({ isEditing: !this.state.isEditing })
     };
     render () {
         const { user: { getUser } } = this.props
@@ -48,15 +46,16 @@ class UserProfile extends React.Component {
                     </button>
                 {getUser &&
                 <div>
+              {console.log('getUser', Object.keys(getUser.userProfile))}
                 {!isEditing
                     ? <ul>
                         <li>Username: {getUser.username}</li>
                         {
-                          getUser.userProfile && getUser.userProfile.map((profileField, i) => {
-                          console.log('profileField', profileField)
-                          return <li>Age: {getUser.userProfile.age}</li>
+                          getUser.userProfile && Object.keys(getUser.userProfile).map((fieldLable, i) => {
+                          // console.log('profileField', profileField)
+                          return <li>{`${fieldLable}:`}</li>
                         })
-                        }
+                      }
                     </ul>   
                     : <form onSubmit={this.updateUser}>
                         <label htmlFor="username">Username:</label>
