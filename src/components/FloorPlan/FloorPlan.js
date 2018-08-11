@@ -1,30 +1,21 @@
 import React from 'react';
-import { graphql, compose } from 'react-apollo'
-import { allRooms } from '../../graphql/floorPlan'
+import { TopFloorContainer as TopFloor} from './TopFloor'
 
-
-
-class FloorPlanContainer extends React.Component {
+class FloorPlan extends React.Component {
   render() {
-    const { allRooms: { getRooms }, loading } = this.props
-    console.log('getRooms', getRooms)
+    const { loading } = this.props
     return (
       // null
-      <div>
+      <div className="floor-plan__container">
         {
-        loading ? <div>Loading</div>
-        : 
-          getRooms && getRooms.map((room, i) => {
-              return <div key={i}>{room.roomNumber}</div>
-          })
+          loading 
+          ? <div>Loading</div>
+          : <div>
+              <TopFloor />
+            </div>
         }
       </div>
     )
   }
 }
-export const FloorPlan = compose(
-  graphql(allRooms,
-    { name: "allRooms" }
-  ),
-)(FloorPlanContainer)
-
+export default FloorPlan

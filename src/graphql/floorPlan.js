@@ -5,6 +5,16 @@ query {
   getRooms {
     roomNumber
     owner
+    floor
+  }
+}
+`;
+
+export const topFloor = gql`
+query {
+  getTopFloor {
+    roomNumber
+    owner
   }
 }
 `;

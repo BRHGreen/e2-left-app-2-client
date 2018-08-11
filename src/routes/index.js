@@ -6,7 +6,7 @@ import Login from './auth/Login'
 import UserProfile from './UserProfile'
 import Navbar from '../components/Navbar'
 import Kitchen from '../components/Kitchen/Kitchen'
-import { FloorPlan } from '../components/FloorPlan/FloorPlan'
+import FloorPlan from '../components/FloorPlan/FloorPlan'
 import { MainlandWestCupboardsContainer } from '../components/Kitchen/Cupboards/MainlandWestCupboards'
 
 import {

@@ -1,0 +1,9 @@
+@import "variables.scss";
+
+.floor-plan {
+  &__container {
+    height: 100vh;
+    width: 100%;
+    border: 1px solid;
+  }
+}
