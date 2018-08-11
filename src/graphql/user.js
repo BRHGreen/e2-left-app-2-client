@@ -23,6 +23,9 @@ export const getUser = gql`
         interests
         bio
       }
+      kitchenCupboard {
+        cupboardNumber
+      }
     }
   }
 `;

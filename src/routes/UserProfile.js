@@ -53,6 +53,7 @@ class UserProfile extends React.Component {
     render () {
         const { user: { getUser } } = this.props
         const { isEditing } = this.state
+      console.log('getUser', getUser)
         return (
             <div className="page-content">
               <h3>Your Profile:</h3>
@@ -71,6 +72,13 @@ class UserProfile extends React.Component {
                                 }
                               )
                             }
+                        </ul>
+                        <ul>
+                          {
+                            getUser.kitchenCupboard.map((kitchenCupboard, i) => (
+                              <li>{kitchenCupboard.cupboardNumber}</li>
+                            ))
+                          }
                         </ul>
                         <button
                           className="btn"
