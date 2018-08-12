@@ -11,11 +11,31 @@ class TopFloor extends React.Component {
         <div>
           {
             getTopFloor && getTopFloor.map((room, i) => {
-              return (
-                <div key={i}>
-                  <div>{`no: ${room.roomNumber}`}</div>
-                </div>
-              )
+              if (room.roomNumber <= 3) {
+                return (
+                  <div className="floor-plan__room" key={i}>{`no: ${room.roomNumber}`}</div>
+                )
+              }
+            })
+          }
+          <div className="floor-plan__room--break">break</div>
+          {
+            getTopFloor && getTopFloor.map((room, i) => {
+              if (room.roomNumber > 3 && room.roomNumber <= 6) {
+                return (
+                  <div className="floor-plan__room" key={i}>{`no: ${room.roomNumber}`}</div>
+                )
+              }
+            })
+          }
+          <div>break</div>
+          {
+            getTopFloor && getTopFloor.map((room, i) => {
+              if (room.roomNumber > 6) {
+                return (
+                  <div className="floor-plan__room" key={i}>{`no: ${room.roomNumber}`}</div>
+                )
+              }
             })
           }
         </div>

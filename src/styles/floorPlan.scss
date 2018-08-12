@@ -5,5 +5,28 @@
     height: calc(100vh - #{$nav-header-height});
     width: 100%;
     border: 1px solid;
+    position: relative;
   }
+  &__room {
+    position: absolute;
+    border: 1px solid lightgray;
+    &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+      background: blue;
+      top: 0;
+    }
+    &:nth-child(1) {
+      left: 0;  
+    }
+    &:nth-child(2) {
+      left: 50px;
+    }
+    &:nth-child(3) {
+      right: 0;
+    }
+
+  }
+}
+
+.floor-plan__room--break {
+  background: yellow;
 }
