@@ -12,6 +12,7 @@
     display: inline-block;
     width: calc(100% / 6);
     height: 100px;
+    word-wrap: break-word;
   }
 }
 .room-container {
@@ -23,12 +24,5 @@
 }
 
 .floor-plan__room--break {
-  // position: absolute;
   background: lightblue; 
 }
-// .floor-plan__room--break.one {
-//   top: 100px;
-// }
-// .floor-plan__room--break.two {
-//   top: 200px;
-// }

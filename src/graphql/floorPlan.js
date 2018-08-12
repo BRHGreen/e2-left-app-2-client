@@ -6,6 +6,10 @@ query {
     roomNumber
     owner
     floor
+    user {
+      id
+      username
+    }
   }
 }
 `;
@@ -15,6 +19,10 @@ query {
   getTopFloor {
     roomNumber
     owner
+    user {
+      id
+      username
+    }
   }
 }
 `;
@@ -24,6 +32,10 @@ query {
   getGroundFloor {
     roomNumber
     owner
+    user {
+      id
+      username
+    }
   }
 }
 `;
