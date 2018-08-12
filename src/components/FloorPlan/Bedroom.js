@@ -10,17 +10,17 @@ class Bedroom extends React.Component {
     this.setState({ isEditing: !this.state.isEditing })
   }
 
-  onChangeHandler(e) {
-    e.preventDefault()
-    this.setState({ newOwner: e.target.value })
+  onChangeHandler(newOwner) {
+    this.setState({ newOwner })
+    console.log('onChange', newOwner)
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault()
-    await this.props.updateOwner({
+  handleSubmit = async () => {
+    console.log('submit', this.props)
+    await this.props.updateRoom({
       variables: { id: this.props.room.id, owner: this.state.newOwner }
     })
-    this.props.mainlandWestCupboards.refetch()
+    this.props.groundFloor.refetch()
     this.setState({ isEditing: !this.state.isEditing })
   }
 
@@ -44,38 +44,38 @@ class Bedroom extends React.Component {
 
         :
         <div className="floor-plan__room--content">
-          <form onSubmit={this.handleSubmit}>
-            <select onChange={(e) => this.onChangeHandler(e)} defaultValue={room.user && room.user.id || "unoccupied"}>
-              {
-                allUsers &&
-                allUsers.map((user, i) => (
-                  <option
-                    key={i}
-                    value={user.id}
-                    onBlur={this.handleEditing}
-                  >
-                  {user.username}
-                  </option>
-                )
-                )
-              }
-              <option>unoccupied</option>
-            </select>
-            <div className="floor-plan__room--footer">
-                <button className="btn btn-action btn-sm" onClick={this.handleEditing}>
-                  <i className="icon icon-cross" />
-                </button>
-                <button className="btn btn-primary btn-action btn-sm">
-                  <i className="icon icon-check" />
-                </button>
-
+            <div className="accordion">
+              <input type="checkbox" id="accordion-1" name="accordion-checkbox" hidden /> 
+                <label className="accordion-header" htmlFor="accordion-1">
+                  <i className="icon icon-arrow-right mr-1"></i>
+                  {room.user && room.user.username}
+                </label>
+                <div className="accordion-body">
+                <ul className="menu menu-nav">
+                  {
+                    allUsers &&
+                    allUsers.map((user, i) => (
+                      <li
+                        className="menu-item"
+                        key={i}
+                        value={user.id}
+                        onBlur={this.handleEditing}
+                      >
+                        <a onClick={() => this.onChangeHandler(user.id)}>{user.username}</a>
+                      </li>
+                    )
+                    )
+                  }
+                </ul>
+                </div>
             </div>
-          </form>
-          </div>
+            <button onClick={this.handleSubmit} className="btn btn-primary btn-action btn-sm">
+              <i className="icon icon-check" />
+            </button>
+        </div>
         }
       </div>
     )
   }
 }
 export default Bedroom
-

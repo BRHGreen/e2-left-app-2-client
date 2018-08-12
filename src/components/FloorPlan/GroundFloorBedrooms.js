@@ -1,12 +1,18 @@
 import React from 'react';
 import { graphql, compose } from 'react-apollo'
-import { groundFloor } from '../../graphql/floorPlan'
+import { groundFloor, updateRoom } from '../../graphql/floorPlan'
 import { allUsers } from '../../graphql/user'
 import Bedroom from './Bedroom'
 
 class GroundFloorBedrooms extends React.Component {
   render() {
-    const { groundFloor: { getGroundFloor }, allUsers: { allUsers } } = this.props
+    const { 
+      groundFloor,
+      groundFloor: { getGroundFloor },
+      allUsers: { allUsers },
+      updateRoom
+    } = this.props
+
     return (
       <div className="page__content">
         <p><b>Bedrooms; Ground Floor</b></p>
@@ -19,6 +25,9 @@ class GroundFloorBedrooms extends React.Component {
                     key={i}
                     room={room}
                     allUsers={allUsers}
+                    getGroundFloor={getGroundFloor}
+                    groundFloor={groundFloor}
+                    updateRoom={updateRoom}
                   />
                 )
             })
@@ -35,6 +44,9 @@ export const GroundFloorBedroomsContainer = compose(
   ),
   graphql(allUsers,
     { name: "allUsers" }
+  ),
+  graphql(updateRoom,
+    { name: "updateRoom" }
   ),
 )(GroundFloorBedrooms)
 
