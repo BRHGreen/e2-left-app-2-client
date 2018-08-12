@@ -5,17 +5,12 @@
   position: relative; }
 
 .floor-plan__room {
-  position: absolute;
-  border: 1px solid lightgray; }
-  .floor-plan__room:nth-child(1), .floor-plan__room:nth-child(2), .floor-plan__room:nth-child(3) {
-    background: blue;
-    top: 0; }
-  .floor-plan__room:nth-child(1) {
-    left: 0; }
-  .floor-plan__room:nth-child(2) {
-    left: 50px; }
-  .floor-plan__room:nth-child(3) {
-    right: 0; }
+  border: 1px solid lightgrey;
+  display: inline-block;
+  width: calc(100% / 6); }
+
+.room-container--1 .floor-plan__room:nth-child(3), .room-container--2 .floor-plan__room:nth-child(3) {
+  float: right; }
 
 .floor-plan__room--break {
-  background: yellow; }
+  background: lightblue; }

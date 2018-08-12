@@ -8,25 +8,26 @@
     position: relative;
   }
   &__room {
-    position: absolute;
-    border: 1px solid lightgray;
-    &:nth-child(1), &:nth-child(2), &:nth-child(3) {
-      background: blue;
-      top: 0;
+    border: 1px solid lightgrey;
+    display: inline-block;
+    width: calc(100% / 6)
+  }
+}
+.room-container {
+  &--1, &--2 {
+    .floor-plan__room:nth-child(3) {
+      float: right;
     }
-    &:nth-child(1) {
-      left: 0;  
-    }
-    &:nth-child(2) {
-      left: 50px;
-    }
-    &:nth-child(3) {
-      right: 0;
-    }
-
   }
 }
 
 .floor-plan__room--break {
-  background: yellow;
+  // position: absolute;
+  background: lightblue; 
 }
+// .floor-plan__room--break.one {
+//   top: 100px;
+// }
+// .floor-plan__room--break.two {
+//   top: 200px;
+// }
