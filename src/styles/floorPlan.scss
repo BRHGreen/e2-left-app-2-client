@@ -16,10 +16,15 @@
     position: relative;
     vertical-align: top;
     padding: $padding-sm;
-    &--number {
-      position: absolute;
-      right: $padding-sm;
-      bottom: $padding-sm;
+    &--content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+    &--footer {
+      display: flex;
+      justify-content: space-between;
     }
   }
 }

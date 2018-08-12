@@ -42,8 +42,7 @@ class MainlandWestCupboards extends React.Component {
                     )
                   }
                   return null
-                }
-                )
+                  })
                 }
                 <div className="mainland-west__cupboard mainland-west__cupboard--sink">sink</div>{this.props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
                   if (

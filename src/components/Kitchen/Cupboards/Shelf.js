@@ -47,8 +47,8 @@ export class Shelf extends React.Component {
                     key="3"
                     onClick={() => this.handleEditing()}
                   >
-                    EDIT
-              </span>
+                  EDIT
+                  </span>
                 ]
               : <form onSubmit={this.handleSubmit}>
                 <select onChange={(e) => this.onChangeHandler(e)} defaultValue={shelf.user && shelf.user.id}>

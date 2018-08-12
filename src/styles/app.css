@@ -30,6 +30,9 @@ li {
 .text-sm {
   font-size: 0.8em; }
 
+.line-height-lg {
+  line-height: 2em; }
+
 .capalaize {
   text-transform: capitalize; }
 
@@ -169,10 +172,14 @@ nav {
   position: relative;
   vertical-align: top;
   padding: 0.5em; }
-  .floor-plan__room--number {
-    position: absolute;
-    right: 0.5em;
-    bottom: 0.5em; }
+  .floor-plan__room--content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between; }
+  .floor-plan__room--footer {
+    display: flex;
+    justify-content: space-between; }
 
 .room-container--1 .floor-plan__room:nth-child(3), .room-container--2 .floor-plan__room:nth-child(3) {
   float: right; }
