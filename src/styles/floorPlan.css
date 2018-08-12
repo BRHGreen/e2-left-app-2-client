@@ -23,6 +23,10 @@
   .floor-plan__room--footer {
     display: flex;
     justify-content: space-between; }
+    .floor-plan__room--footer.edit {
+      position: absolute;
+      bottom: 0.5em;
+      right: 0.5em; }
 
 .room-container--1 .floor-plan__room:nth-child(3), .room-container--2 .floor-plan__room:nth-child(3) {
   float: right; }

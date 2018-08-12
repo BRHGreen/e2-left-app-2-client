@@ -3,22 +3,31 @@ import React from 'react';
 class Bedroom extends React.Component {
   state = {
     isEditing: false,
-    newOwner: null,
+    newOwnerId: null,
+    newOwnerName: null,
+    dropdownOpen: false,
   }
 
-  handleEditing = () => {
-    this.setState({ isEditing: !this.state.isEditing })
+  handleEditing = (isdropdownOpen) => {
+    this.setState({ 
+      isEditing: !this.state.isEditing,
+      dropdownOpen: isdropdownOpen,
+      newOwnerName: null,
+    })
   }
 
   onChangeHandler(newOwner) {
-    this.setState({ newOwner })
-    console.log('onChange', newOwner)
+    this.setState({ 
+      newOwnerId: newOwner.id,
+      newOwnerName: newOwner.username,
+      dropdownOpen: !this.state.dropdownOpen,
+    })
   }
 
   handleSubmit = async () => {
     console.log('submit', this.props)
     await this.props.updateRoom({
-      variables: { id: this.props.room.id, owner: this.state.newOwner }
+      variables: { id: this.props.room.id, owner: this.state.newOwnerId }
     })
     this.props.groundFloor.refetch()
     this.setState({ isEditing: !this.state.isEditing })
@@ -26,9 +35,10 @@ class Bedroom extends React.Component {
 
   render() {
     const { room, allUsers } = this.props
+    const { isEditing, dropdownOpen, hide } = this.state
     return (
       <div className="floor-plan__room">
-      {!this.state.isEditing
+      {!isEditing
        ? 
         <div className="floor-plan__room--content">
           {
@@ -38,40 +48,47 @@ class Bedroom extends React.Component {
           }
           <div className="floor-plan__room--footer">
             <span className="floor-plan__room--number text-xs">{`no: ${room.roomNumber}`}</span>
-            <i onClick={() => this.handleEditing()} className="icon icon-edit" />
+              <button className="btn btn-action btn-sm">
+                <i onClick={() => this.handleEditing(true)} className="icon icon-edit" />
+              </button>
           </div>
         </div>
 
         :
         <div className="floor-plan__room--content">
-            <div className="accordion">
-              <input type="checkbox" id="accordion-1" name="accordion-checkbox" hidden /> 
-                <label className="accordion-header" htmlFor="accordion-1">
-                  <i className="icon icon-arrow-right mr-1"></i>
-                  {room.user && room.user.username}
-                </label>
+            <details className="accordion" open={dropdownOpen}>
+              <summary className="accordion-header">
+                  {this.state.newOwnerName || (room.user && room.user.username)}
+              </summary>
+              {console.log(this.props)}
                 <div className="accordion-body">
                 <ul className="menu menu-nav">
                   {
-                    allUsers &&
-                    allUsers.map((user, i) => (
+                    allUsers && allUsers
+                      .filter(user => user.id !== room.user.id)
+                      .map((user, i) => (
                       <li
                         className="menu-item"
                         key={i}
                         value={user.id}
-                        onBlur={this.handleEditing}
                       >
-                        <a onClick={() => this.onChangeHandler(user.id)}>{user.username}</a>
+                        <a onClick={() => this.onChangeHandler(user)}>{user.username}</a>
                       </li>
                     )
                     )
                   }
+                  <li onClick={() => this.handleEditing()}>close</li>
                 </ul>
-                </div>
-            </div>
+              </div>
+            </details>
+            <div className="floor-plan__room--footer edit" >
             <button onClick={this.handleSubmit} className="btn btn-primary btn-action btn-sm">
               <i className="icon icon-check" />
             </button>
+            <button className="btn btn-action btn-sm" onClick={this.handleEditing}>
+              <i className="icon icon-cross" />
+            </button>
+          </div>
         </div>
         }
       </div>
