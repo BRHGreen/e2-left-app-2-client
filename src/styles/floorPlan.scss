@@ -2,7 +2,7 @@
 
 .floor-plan {
   &__container {
-    height: 100vh;
+    height: calc(100vh - #{$nav-header-height});
     width: 100%;
     border: 1px solid;
   }

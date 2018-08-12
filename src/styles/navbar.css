@@ -5,7 +5,8 @@ nav {
   -webkit-box-shadow: 2px -2px 16px 5px rgba(219, 215, 219, 0.39);
   -moz-box-shadow: 2px -2px 16px 5px rgba(219, 215, 219, 0.39);
   box-shadow: 2px -2px 16px 5px rgba(219, 215, 219, 0.39);
-  padding: 10px; }
+  height: 60px;
+  padding-top: 7px; }
   nav ul, nav li {
     margin: 0; }
   nav ul {

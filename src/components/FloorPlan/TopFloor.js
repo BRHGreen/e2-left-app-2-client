@@ -12,8 +12,8 @@ class TopFloor extends React.Component {
           {
             getTopFloor && getTopFloor.map((room, i) => {
               return (
-                <div className="page-contene">
-                  <div key={i}>{`no: ${room.roomNumber}`}</div>
+                <div key={i}>
+                  <div>{`no: ${room.roomNumber}`}</div>
                 </div>
               )
             })

@@ -6,7 +6,7 @@ class FloorPlan extends React.Component {
     const { loading } = this.props
     return (
       // null
-      <div className="floor-plan__container">
+      <div className="page-content floor-plan__container">
         {
           loading 
           ? <div>Loading</div>
