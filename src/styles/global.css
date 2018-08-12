@@ -23,3 +23,9 @@ ul {
 
 li {
   list-style: none; }
+
+.text-xs {
+  font-size: 0.6em; }
+
+.text-sm {
+  font-size: 0.8em; }

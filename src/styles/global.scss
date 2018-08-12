@@ -30,4 +30,9 @@ li {
     list-style: none;
 }
 
-
+.text-xs {
+  font-size: $text-xs;
+}
+.text-sm {
+  font-size: $text-sm;
+}
