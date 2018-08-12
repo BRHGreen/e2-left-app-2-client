@@ -2,9 +2,17 @@ $background-color-pale:#F8F9FA;
 
 $text-color-brand-primary: #5755d9;
 
-$padding-lg: 20px;
-$padding-md: 10px;
-$padding-sm: 5px;
+$spacing-lg: 2em;
+$spacing-md: 1em;
+$spacing-sm: .5em;
+
+$padding-lg: $spacing-lg;
+$padding-md: $spacing-md;
+$padding-sm: $spacing-sm;
+
+$margin-lg: $spacing-lg;
+$margin-md: $spacing-md;
+$margin-sm: $spacing-sm;
 
 $grey: #DAD9D9;
 $blue: #A6C5FE;

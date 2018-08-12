@@ -1,5 +1,8 @@
-.page-content {
-  padding: 20px; }
+.page__container {
+  padding: 2em; }
+
+.page__content {
+  margin-bottom: 1em; }
 
 form {
   display: flex;

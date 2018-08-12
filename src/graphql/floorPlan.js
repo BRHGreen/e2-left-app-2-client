@@ -18,3 +18,12 @@ query {
   }
 }
 `;
+
+export const groundFloor = gql`
+query {
+  getGroundFloor {
+    roomNumber
+    owner
+  }
+}
+`;

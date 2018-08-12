@@ -1,5 +1,8 @@
+p {
+  margin: 0.5em 0; }
+
 .btn {
-  margin: 5px; }
+  margin: 0.5em; }
   .btn__edit-icon {
     border: none; }
 
@@ -9,8 +12,8 @@
   flex-direction: column; }
 
 input {
-  margin-bottom: .5em;
-  padding: 5px; }
+  margin-bottom: 0.5em;
+  padding: 0.5em; }
 
 input::-webkit-input-placeholder {
   color: #adbdd6 !important; }
@@ -24,8 +27,11 @@ li {
 .capalaize {
   text-transform: capitalize; }
 
-.page-content {
-  padding: 20px; }
+.page__container {
+  padding: 2em; }
+
+.page__content {
+  margin-bottom: 1em; }
 
 form {
   display: flex;
@@ -47,12 +53,12 @@ nav {
     display: flex;
     justify-content: flex-end; }
     nav ul li {
-      padding: 10px; }
+      padding: 1em; }
 
 .kitchen__wrapper {
   height: 100vh;
   width: 100%;
-  padding: 10px;
+  padding: 1em;
   border: 1px solid black;
   position: relative; }
 
@@ -132,8 +138,8 @@ nav {
   position: relative; }
   .kitchen-shelf--number {
     position: absolute;
-    right: 5px;
-    bottom: 5px;
+    right: 0.5em;
+    bottom: 0.5em;
     font-size: 0.6em; }
 
 .kitchen-shelf--2 {
@@ -151,7 +157,8 @@ nav {
 .floor-plan__room {
   border: 1px solid lightgrey;
   display: inline-block;
-  width: calc(100% / 6); }
+  width: calc(100% / 6);
+  height: 100px; }
 
 .room-container--1 .floor-plan__room:nth-child(3), .room-container--2 .floor-plan__room:nth-child(3) {
   float: right; }

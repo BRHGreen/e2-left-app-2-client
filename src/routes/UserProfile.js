@@ -54,7 +54,7 @@ class UserProfile extends React.Component {
         const { user: { getUser } } = this.props
         const { isEditing } = this.state
         return (
-            <div className="page-content">
+            <div className="page__container">
               <h3>Your Profile:</h3>
               {getUser &&
                 <div>
