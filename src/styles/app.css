@@ -1,3 +1,6 @@
+.btn-action {
+  margin: 0 !important; }
+
 p {
   margin: 0.5em 0; }
 
@@ -177,6 +180,8 @@ nav {
     flex-direction: column;
     height: 100%;
     justify-content: space-between; }
+    .floor-plan__room--content form {
+      display: contents; }
   .floor-plan__room--footer {
     display: flex;
     justify-content: space-between; }

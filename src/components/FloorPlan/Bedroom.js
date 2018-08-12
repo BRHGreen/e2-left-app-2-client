@@ -27,8 +27,9 @@ class Bedroom extends React.Component {
   render() {
     const { room, allUsers } = this.props
     return (
-      <div>
-       <div className="floor-plan__room">
+      <div className="floor-plan__room">
+      {!this.state.isEditing
+       ? 
         <div className="floor-plan__room--content">
           {
             room.user && room.user.username
@@ -40,10 +41,38 @@ class Bedroom extends React.Component {
             <i onClick={() => this.handleEditing()} className="icon icon-edit" />
           </div>
         </div>
-        </div>
-        {allUsers && allUsers.map(user => {
-          console.log('user', user)
-        })}
+
+        :
+        <div className="floor-plan__room--content">
+          <form onSubmit={this.handleSubmit}>
+            <select onChange={(e) => this.onChangeHandler(e)} defaultValue={room.user && room.user.id || "unoccupied"}>
+              {
+                allUsers &&
+                allUsers.map((user, i) => (
+                  <option
+                    key={i}
+                    value={user.id}
+                    onBlur={this.handleEditing}
+                  >
+                  {user.username}
+                  </option>
+                )
+                )
+              }
+              <option>unoccupied</option>
+            </select>
+            <div className="floor-plan__room--footer">
+                <button className="btn btn-action btn-sm" onClick={this.handleEditing}>
+                  <i className="icon icon-cross" />
+                </button>
+                <button className="btn btn-primary btn-action btn-sm">
+                  <i className="icon icon-check" />
+                </button>
+
+            </div>
+          </form>
+          </div>
+        }
       </div>
     )
   }

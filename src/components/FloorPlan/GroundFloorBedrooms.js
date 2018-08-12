@@ -15,7 +15,7 @@ class GroundFloorBedrooms extends React.Component {
           {
             getGroundFloor && getGroundFloor.map((room, i) => {
                 return (
-                  <Bedroom 
+                  <Bedroom
                     key={i}
                     room={room}
                     allUsers={allUsers}
