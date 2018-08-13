@@ -18,7 +18,8 @@ class Bedroom extends React.Component {
   }
 
   onChangeHandler(newOwner) {
-    this.setState({ 
+    console.log('newOwner', newOwner)
+    this.setState({
       newOwnerId: newOwner.id,
       newOwnerName: newOwner.username,
       dropdownOpen: !this.state.dropdownOpen,
@@ -35,20 +36,23 @@ class Bedroom extends React.Component {
   }
 
   getMenuItems () {
-    console.log("all users", this.props)
     const { allUsers, room } = this.props
-    const menuItems = [];
     return allUsers && allUsers.map(user => {
       if (room && user.id !== room.owner) {
-        return user.username
+        return user
       }
       if (!room.owner) {
-        return user.username
+        return user
       }
       return null
     }
-
     )
+  }
+
+  getArgs () {
+    console.log("all users", this.props)
+    const { allUsers } = this.props
+    return allUsers && allUsers.map(user => user.id)
   }
   
   render() {
@@ -74,12 +78,13 @@ class Bedroom extends React.Component {
         : <div className="floor-plan__room--content">
             <Dropdown
               isOpen={dropdownOpen}
+              onClose={() => this.handleEditing()}
               header={
                 this.state.newOwnerName || (room.user && room.user.username)
               }
               menuItems={this.getMenuItems()}
-              onChangeHandler={() => this.onChangeHandler()}
-              // arg={}
+              onChangeHandler={(user) => this.onChangeHandler(user)}
+              displayValue="username"
             />
             
             <div className="floor-plan__room--footer edit" >
