@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from '../Common/Dropdown'
+import Dropdown from '../common/Dropdown'
 
 class Bedroom extends React.Component {
   state = {
