@@ -15,6 +15,7 @@ export const Shelves = (props) => {
           updateOwner={props.updateOwner}
           allUsers={props.allUsers}
           mainlandWestCupboards={props.mainlandWestCupboards}
+          landmass={props.landmass}
         />
       ))
 }

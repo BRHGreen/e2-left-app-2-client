@@ -20,7 +20,8 @@ export class Shelf extends React.Component {
     const response = await this.props.updateOwner({
       variables: { id: this.props.shelf.id, owner: this.state.newOwner }
     })
-    this.props.mainlandWestCupboards.refetch()
+    console.log("this.props", this.props)
+    this.props[this.props.landmass].refetch()
     this.setState({ isEditing: !this.state.isEditing })
   }
 

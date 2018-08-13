@@ -37,7 +37,8 @@ class MainlandWestCupboards extends React.Component {
                           updateOwner={this.props.updateOwner}
                           allUsers={allUsers}
                           mainlandWestCupboards={mainlandWestCupboards}
-                      />
+                          landmass="mainlandWestCupboards"
+                        />
                       </div>
                     )
                   }
@@ -57,6 +58,8 @@ class MainlandWestCupboards extends React.Component {
                           cupboard={cupboard}
                           updateOwner={this.props.updateOwner}
                           allUsers={allUsers}
+                          mainlandWestCupboards={mainlandWestCupboards}
+                          landmass="mainlandWestCupboards"
                         />
                       </div>
                     )
@@ -74,6 +77,8 @@ class MainlandWestCupboards extends React.Component {
                         cupboard={cupboard}
                         updateOwner={this.props.updateOwner}
                         allUsers={allUsers}
+                        mainlandWestCupboards={mainlandWestCupboards}
+                        landmass="mainlandWestCupboards"
                       />
                     </div>
                   )
@@ -89,7 +94,9 @@ class MainlandWestCupboards extends React.Component {
                         allCupboards={arr}
                         cupboard={cupboard}
                         updateOwner={this.props.updateOwner}
+                        mainlandWestCupboards={mainlandWestCupboards}
                         allUsers={allUsers}
+                        landmass="mainlandWestCupboards"
                       />
                     </div>
                   )
