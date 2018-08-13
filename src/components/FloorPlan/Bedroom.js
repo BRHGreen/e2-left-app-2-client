@@ -34,6 +34,22 @@ class Bedroom extends React.Component {
     this.setState({ isEditing: !this.state.isEditing })
   }
 
+  getMenuItems () {
+    console.log("all users", this.props.allUsers)
+    const menuItems = [];
+    this.props.allUsers && this.props.allUsers.map(user => 
+      menuItems.push(user.username)
+    )
+    return menuItems
+    // if (room.user && user.id !== room.user.id) {
+    //   return user.username
+    // }
+    // if (!room.user) {
+    //   return user.username
+    // }
+    // return null
+  }
+  
   render() {
     const { room, allUsers } = this.props
     const { isEditing, dropdownOpen, hide } = this.state
@@ -55,38 +71,16 @@ class Bedroom extends React.Component {
         </div>
         
         : <div className="floor-plan__room--content">
-            <details className="accordion" open={dropdownOpen}>
-              <summary className="accordion-header">
-                  {this.state.newOwnerName || (room.user && room.user.username)}
-              </summary>
-              {console.log(this.props)}
-                <div className="accordion-body">
-                <ul className="menu menu-nav">
-                  {
-                    allUsers && allUsers
-                      .map((user, i) => {
-                        if (room.user && user.id !== room.user.id) {
-                          return (
-                            <li className="menu-item" key={i}>
-                              <a onClick={() => this.onChangeHandler(user)}>{user.username}</a>
-                            </li>
-                          )
-                        }
-                        if (!room.user) {
-                          return (
-                            <li className="menu-item" key={i}>
-                              <a onClick={() => this.onChangeHandler(user)}>{user.username}</a>
-                            </li>
-                          )
-                        }
-                        return null
-                      }
-                    )
-                  }
-                  <li onClick={() => this.handleEditing()}>close</li>
-                </ul>
-              </div>
-            </details>
+            <Dropdown
+              isOpen={dropdownOpen}
+              header={
+                this.state.newOwnerName || (room.user && room.user.username)
+              }
+              menuItems={this.getMenuItems()}
+              onChangeHandler={() => this.onChangeHandler()}
+              // arg={}
+            />
+            
             <div className="floor-plan__room--footer edit" >
             <button onClick={this.handleSubmit} className="btn btn-primary btn-action btn-sm">
               <i className="icon icon-check" />
