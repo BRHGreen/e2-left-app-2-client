@@ -91,7 +91,7 @@ class Bedroom extends React.Component {
             <button onClick={this.handleSubmit} className="btn btn-primary btn-action btn-sm">
               <i className="icon icon-check" />
             </button>
-            <button className="btn btn-action btn-sm" onClick={this.handleEditing}>
+            <button className="btn btn-action btn-sm" onClick={() => this.handleEditing(false)}>
               <i className="icon icon-cross" />
             </button>
           </div>
