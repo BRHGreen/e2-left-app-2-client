@@ -28,6 +28,7 @@ class TopFloorBedrooms extends React.Component {
                     getTopFloor={getTopFloor}
                     topFloor={topFloor}
                     updateRoom={updateRoom}
+                    floor="topFloor"
                   />
                 )
               }
@@ -48,6 +49,7 @@ class TopFloorBedrooms extends React.Component {
                     getTopFloor={getTopFloor}
                     topFloor={topFloor}
                     updateRoom={updateRoom}
+                    floor="topFloor"
                   />
                 )
               }
@@ -68,6 +70,7 @@ class TopFloorBedrooms extends React.Component {
                     getTopFloor={getTopFloor}
                     topFloor={topFloor}
                     updateRoom={updateRoom}
+                    floor="topFloor"
                   />
                 )
               }

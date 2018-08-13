@@ -28,6 +28,7 @@ class GroundFloorBedrooms extends React.Component {
                     getGroundFloor={getGroundFloor}
                     groundFloor={groundFloor}
                     updateRoom={updateRoom}
+                    floor="groundFloor"
                   />
                 )
             })

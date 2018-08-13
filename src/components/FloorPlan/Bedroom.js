@@ -10,7 +10,7 @@ class Bedroom extends React.Component {
   }
 
   handleEditing = (isOpen) => {
-    this.setState({ 
+    this.setState({
       isEditing: isOpen,
       dropdownOpen: isOpen,
       newOwnerName: null,
@@ -18,7 +18,6 @@ class Bedroom extends React.Component {
   }
 
   onChangeHandler(newOwner) {
-    console.log('newOwner', newOwner)
     this.setState({
       newOwnerId: newOwner.id,
       newOwnerName: newOwner.username,
@@ -27,11 +26,11 @@ class Bedroom extends React.Component {
   }
 
   handleSubmit = async () => {
-    console.log('submit', this.props)
     await this.props.updateRoom({
       variables: { id: this.props.room.id, owner: this.state.newOwnerId }
     })
-    this.props.groundFloor.refetch()
+    console.log('this.props.floor', this.props.floor)
+    this.props[this.props.floor].refetch()
     this.setState({ isEditing: !this.state.isEditing })
   }
 
@@ -50,7 +49,6 @@ class Bedroom extends React.Component {
   }
 
   getArgs () {
-    console.log("all users", this.props)
     const { allUsers } = this.props
     return allUsers && allUsers.map(user => user.id)
   }
