@@ -1,4 +1,5 @@
 import React from 'react';
+import Dropdown from '../Common/Dropdown'
 
 class Bedroom extends React.Component {
   state = {
@@ -60,7 +61,6 @@ class Bedroom extends React.Component {
               </summary>
               {console.log(this.props)}
                 <div className="accordion-body">
-                {console.log('room', room)}
                 <ul className="menu menu-nav">
                   {
                     allUsers && allUsers

@@ -27,8 +27,6 @@
       position: absolute;
       bottom: 0.5em;
       right: 0.5em; }
-      .floor-plan__room--footer.edit button {
-        margin-left: 0.5em; }
 
 .room-container--1 .floor-plan__room:nth-child(3), .room-container--2 .floor-plan__room:nth-child(3) {
   float: right; }
