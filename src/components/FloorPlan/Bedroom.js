@@ -8,10 +8,10 @@ class Bedroom extends React.Component {
     dropdownOpen: false,
   }
 
-  handleEditing = (isdropdownOpen) => {
+  handleEditing = (isOpen) => {
     this.setState({ 
-      isEditing: !this.state.isEditing,
-      dropdownOpen: isdropdownOpen,
+      isEditing: isOpen,
+      dropdownOpen: isOpen,
       newOwnerName: null,
     })
   }
@@ -39,8 +39,7 @@ class Bedroom extends React.Component {
     return (
       <div className="floor-plan__room">
       {!isEditing
-       ? 
-        <div className="floor-plan__room--content">
+       ? <div className="floor-plan__room--content">
           {
             room.user && room.user.username
               ? <span>{room.user.username}</span>
@@ -53,28 +52,35 @@ class Bedroom extends React.Component {
               </button>
           </div>
         </div>
-
-        :
-        <div className="floor-plan__room--content">
+        
+        : <div className="floor-plan__room--content">
             <details className="accordion" open={dropdownOpen}>
               <summary className="accordion-header">
                   {this.state.newOwnerName || (room.user && room.user.username)}
               </summary>
               {console.log(this.props)}
                 <div className="accordion-body">
+                {console.log('room', room)}
                 <ul className="menu menu-nav">
                   {
                     allUsers && allUsers
-                      .filter(user => user.id !== room.user.id)
-                      .map((user, i) => (
-                      <li
-                        className="menu-item"
-                        key={i}
-                        value={user.id}
-                      >
-                        <a onClick={() => this.onChangeHandler(user)}>{user.username}</a>
-                      </li>
-                    )
+                      .map((user, i) => {
+                        if (room.user && user.id !== room.user.id) {
+                          return (
+                            <li className="menu-item" key={i}>
+                              <a onClick={() => this.onChangeHandler(user)}>{user.username}</a>
+                            </li>
+                          )
+                        }
+                        if (!room.user) {
+                          return (
+                            <li className="menu-item" key={i}>
+                              <a onClick={() => this.onChangeHandler(user)}>{user.username}</a>
+                            </li>
+                          )
+                        }
+                        return null
+                      }
                     )
                   }
                   <li onClick={() => this.handleEditing()}>close</li>
