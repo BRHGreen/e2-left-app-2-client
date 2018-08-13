@@ -6,7 +6,7 @@ const {
   header,
   menuItems,
   onChangeHandler,
-  displayValue
+  displayValue,
 } = props
 
 return (
@@ -18,18 +18,23 @@ return (
     <div className="accordion-body">
       <ul className="menu menu-nav">
         {
-          menuItems && menuItems.map((item, i) => (
+          menuItems && menuItems.map((item, i) => {
+            {console.log('item', item)}
+            if (item) {
+              return (
               <li
                 className="menu-item"
                 key={i}
-                value={user.id}
               >
-              <a onClick={() => this.onChangeHandler(item)}>{displayValue ? item[displayValue] : item}</a>
+              <a onClick={() => onChangeHandler(item)}>{displayValue ? item[displayValue] : item}</a>
               </li>
-            )
+              )
+            }
+            return null
+          }
             )
         }
-        <li onClick={() => this.handleEditing()}>close</li>
+        <li onClick={onClose}>close</li>
       </ul>
     </div>
   </details>
