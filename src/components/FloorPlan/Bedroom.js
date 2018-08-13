@@ -35,19 +35,20 @@ class Bedroom extends React.Component {
   }
 
   getMenuItems () {
-    console.log("all users", this.props.allUsers)
+    console.log("all users", this.props)
+    const { allUsers, room } = this.props
     const menuItems = [];
-    this.props.allUsers && this.props.allUsers.map(user => 
-      menuItems.push(user.username)
+    return allUsers && allUsers.map(user => {
+      if (room && user.id !== room.owner) {
+        return user.username
+      }
+      if (!room.owner) {
+        return user.username
+      }
+      return null
+    }
+
     )
-    return menuItems
-    // if (room.user && user.id !== room.user.id) {
-    //   return user.username
-    // }
-    // if (!room.user) {
-    //   return user.username
-    // }
-    // return null
   }
   
   render() {
