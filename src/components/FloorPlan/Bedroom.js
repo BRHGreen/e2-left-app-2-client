@@ -29,7 +29,6 @@ class Bedroom extends React.Component {
     await this.props.updateRoom({
       variables: { id: this.props.room.id, owner: this.state.newOwnerId }
     })
-    console.log('this.props.floor', this.props.floor)
     this.props[this.props.floor].refetch()
     this.setState({ isEditing: !this.state.isEditing })
   }
