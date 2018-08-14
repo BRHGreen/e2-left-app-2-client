@@ -11,8 +11,6 @@ export const Shelves = (props) => {
     return (
           <Shelf
             key={i}
-            owner={shelf.user ? shelf.user.username : "unoccupied"}
-            className={`kitchen-shelf kitchen-shelf--${getShelves.length}`}
             cupboardNumber={shelf.cupboardNumber}
             shelf={shelf}
             updateOwner={props.updateOwner}

@@ -12,7 +12,8 @@
 
 .box-footer {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: flex-end; }
   .box-footer.edit {
     position: absolute;
     bottom: 0.5em;

@@ -56,7 +56,8 @@ li {
 
 .box-footer {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: flex-end; }
   .box-footer.edit {
     position: absolute;
     bottom: 0.5em;
@@ -146,22 +147,9 @@ nav {
 
 .mainland-west__cupboard {
   display: inline-block;
-  width: calc(100% / 6);
-  height: 100%;
-  vertical-align: bottom; }
-  .mainland-west__cupboard--top--container, .mainland-west__cupboard--bottom--container {
-    width: 100%; }
+  width: calc(100% / 6); }
   .mainland-west__cupboard--sink {
-    height: auto;
     text-align: center; }
-
-.mainland-west--3, .mainland-west--4, .mainland-west--5 {
-  height: 70%;
-  vertical-align: top; }
-
-.mainland-west--8, .mainland-west--9, .mainland-west--10, .mainland-west--11 {
-  height: 90%;
-  vertical-align: bottom; }
 
 .box {
   border: 1px solid lightgrey;
@@ -177,7 +165,8 @@ nav {
 
 .box-footer {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-items: flex-end; }
   .box-footer.edit {
     position: absolute;
     bottom: 0.5em;

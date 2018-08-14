@@ -63,11 +63,15 @@ export class Shelf extends React.Component {
       this.props.loading
         ? <div>Loading</div>
         : <div
-          className={`${className} box`}
+          className="box"
         >
               {!this.state.isEditing
             ? <div className="box-content">
-                  <span>{this.props.owner}</span>
+                  {
+                    shelf.user && shelf.user.username
+                    ? <span>{shelf.user.username}</span>
+                    : <span className="text-gray text-sm line-height-lg">unoccupied</span>
+                  }
                   <div className="box-footer">
                   <span className="text-xs">{shelf.cupboardNumber}</span>
                   <button className="btn btn-action btn-sm">

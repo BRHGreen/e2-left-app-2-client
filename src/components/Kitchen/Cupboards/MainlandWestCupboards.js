@@ -8,14 +8,6 @@ import { get } from 'https';
 
 class MainlandWestCupboards extends React.Component {
 
-  cupboardClassName ({ landMass, cupboardNumber }, position) {
-    return (
-      camelCaseToDash(
-        `${landMass}__cupboard ${landMass}__cupboard--${position} ${landMass}--${Math.floor(cupboardNumber)}`
-      )
-    )
-  }
-
   render () {
     const { mainlandWestCupboards, allUsers: { allUsers } } = this.props
     console.log(this.props.getMainlandWestCupboards)
@@ -25,14 +17,13 @@ class MainlandWestCupboards extends React.Component {
           this.props.mainlandWestCupboards.loading
             ? <div>Loading</div>
             : <div>
-              <div className="mainland-west__cupboard--top--container">
-                {mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
+              <div>{mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
                   if (
                     Math.floor(cupboard.cupboardNumber) <= 3
                     && Math.floor(arr[i + 1].cupboardNumber) !== Math.floor(cupboard.cupboardNumber)
                   ) {
                     return (
-                      <div key={i} className={`${this.cupboardClassName(cupboard, "top")}`}>
+                      <div key={i} className="mainland-west__cupboard">
                         <Shelves
                           allCupboards={arr}
                           cupboard={cupboard}
@@ -54,7 +45,7 @@ class MainlandWestCupboards extends React.Component {
                     && Math.floor(arr[i + 1].cupboardNumber) !== Math.floor(cupboard.cupboardNumber)
                   ) {
                     return (
-                      <div key={i} className={`${this.cupboardClassName(cupboard, "top")}`}>
+                      <div key={i} className="mainland-west__cupboard">
                         <Shelves
                           allCupboards={arr}
                           cupboard={cupboard}
@@ -74,7 +65,7 @@ class MainlandWestCupboards extends React.Component {
               <div className="mainland-west__cupboard--bottom--container">{this.props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
                 if (!arr[i + 1]) {
                   return (
-                    <div key={i} className={`${this.cupboardClassName(cupboard, "bottom")}`}>
+                    <div key={i} className="mainland-west__cupboard">
                       <Shelves 
                         allCupboards={arr}
                         cupboard={cupboard}
@@ -92,7 +83,7 @@ class MainlandWestCupboards extends React.Component {
                   && Math.floor(arr[i + 1].cupboardNumber) !== Math.floor(cupboard.cupboardNumber)
                 ) {
                   return (
-                    <div key={i} className={`${this.cupboardClassName(cupboard, "bottom")}`}>
+                    <div key={i} className="mainland-west__cupboard">
                       <Shelves 
                         allCupboards={arr}
                         cupboard={cupboard}

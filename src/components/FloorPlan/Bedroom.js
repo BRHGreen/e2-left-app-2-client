@@ -64,7 +64,7 @@ class Bedroom extends React.Component {
               ? <span>{room.user.username}</span>
               : <span className="text-gray text-sm line-height-lg">unoccupied</span>
           }
-          <div className="floor-plan__room--footer">
+            <div className="box-footer">
             <span className="floor-plan__room--number text-xs">{`no: ${room.roomNumber}`}</span>
               <button className="btn btn-action btn-sm">
                 <i onClick={() => this.handleEditing(true)} className="icon icon-edit" />

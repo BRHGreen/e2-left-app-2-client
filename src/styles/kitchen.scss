@@ -64,32 +64,14 @@
     height: 400px;
     width: 100%;
   }
-  .mainlandWest-1 {
-  }
 }
 
 .mainland-west {
   &__cupboard {
     display: inline-block;
     width: calc(100% / 6);
-    height: 100%;
-    vertical-align: bottom;
-    &--top, &--bottom {
-      &--container {
-        width: 100%;
-      }
-    }
     &--sink {
-      height: auto;
       text-align: center;
     }
-  }
-  &--3, &--4, &--5 {
-    height: 70%;
-    vertical-align: top;
-  }
-  &--8, &--9, &--10, &--11 {
-    height: 90%;
-    vertical-align: bottom;
   }
 }
