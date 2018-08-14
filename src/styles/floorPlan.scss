@@ -1,6 +1,8 @@
 @import "variables.scss";
 @import "common.scss";
 
+$room-break-height: 10%;
+
 .floor-plan {
   &__container {
     height: calc(100vh - #{$nav-header-height});
@@ -10,20 +12,12 @@
   &__room {
     display: inline-block;
     width: calc(100% / 6);
-    height: 100px;
+    height: 100%;
     vertical-align: top;
-    &--footer {
-      display: flex;
-      justify-content: space-between;
-      &.edit {
-        position: absolute;
-        bottom: $padding-sm;
-        right: $padding-sm;
-      }
     }
   }
-}
 .room-container {
+  height: 25%;
   &--1, &--2 {
     .floor-plan__room:nth-child(3) {
       float: right;
@@ -34,3 +28,10 @@
 .floor-plan__room--break {
   background: lightblue; 
 }
+
+// .top-floor {
+//   &__container {
+//     border: 1px solid;
+//     height: 500px;
+//   }
+// }

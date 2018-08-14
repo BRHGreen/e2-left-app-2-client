@@ -6,7 +6,7 @@ class GroundFloorPlan extends React.Component {
   render() {
     const { loading } = this.props
     return (
-      <div className="page__container floor-plan__container">
+      <div className="page__container">
         {
           loading 
           ? <div>Loading</div>

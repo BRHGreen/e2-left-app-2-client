@@ -15,8 +15,8 @@ class TopFloorBedrooms extends React.Component {
     return (
       <div className="page__content">
         <p><b>Bedrooms; Top Floor</b></p>
-        <div>
-          <div className="room-container--1">
+        <div className="container--100vh">
+          <div className="room-container room-container--1">
           {
             getTopFloor && getTopFloor.map((room, i) => {
               if (room.roomNumber <= 3) {
@@ -37,7 +37,7 @@ class TopFloorBedrooms extends React.Component {
           }
           </div>
           <div className="floor-plan__room--break one">break</div>
-          <div className="room-container--2">
+          <div className="room-container room-container--2">
           {
             getTopFloor && getTopFloor.map((room, i) => {
               if (room.roomNumber > 3 && room.roomNumber <= 6) {
@@ -58,7 +58,7 @@ class TopFloorBedrooms extends React.Component {
           }
           </div>
           <div className="floor-plan__room--break two">break</div>
-          <div className="room-container--3">
+          <div className="room-container room-container--3">
           {
             getTopFloor && getTopFloor.map((room, i) => {
               if (room.roomNumber > 6) {

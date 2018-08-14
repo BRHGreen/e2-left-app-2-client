@@ -5,11 +5,11 @@ class TopFloorPlan extends React.Component {
   render() {
     const { loading } = this.props
     return (
-      <div className="page__container floor-plan__container">
+      <div className="page__container">
         {
           loading 
           ? <div>Loading</div>
-          : <div>
+            : <div className="top-floor__container">
               <TopFloorBedrooms />
             </div>
         }

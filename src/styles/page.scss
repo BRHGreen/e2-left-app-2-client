@@ -1,6 +1,6 @@
 @import "variables.scss";
 
-.page{
+.page {
   &__container {
       padding: $padding-lg;
   }
@@ -12,4 +12,8 @@ form {
     display: flex;
     flex-direction: column;
     max-width: 50%;
+}
+
+.container--100vh {
+  height:100vh;
 }

@@ -20,25 +20,14 @@ class Kitchen extends React.Component {
   }
   
   render () {
-    const { kitchenView } = this.state
     return (
       <div className="kitchen__wrapper">
-        {kitchenView === 'wholeKitchen' &&
-          [
-            <Fridges key="0"/>,
+            <Fridges key="0"/>
             <Cupboards
               key="1"
               cupboards={this.state}
               handleViewChange={(cupboard) => this.handleViewChange(cupboard)}
             />
-          ]
-        }
-        {kitchenView === 'mainlandWest' &&
-          <MainlandWestCupboards />
-        }
-        {kitchenView === 'mainlandEast' &&
-          <MainlandEastCupboards />
-        }
       </div>
     )
   }
