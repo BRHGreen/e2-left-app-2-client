@@ -1,0 +1,25 @@
+@import "variables.scss";
+
+.box {
+  border: 1px solid $border-primary;
+  word-wrap: break-word;
+  position: relative;
+  padding: $padding-sm;
+}
+
+.box-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+
+.box-footer {
+  display: flex;
+  justify-content: space-between;
+  &.edit {
+    position: absolute;
+    bottom: $padding-sm;
+    right: $padding-sm;
+  }
+}

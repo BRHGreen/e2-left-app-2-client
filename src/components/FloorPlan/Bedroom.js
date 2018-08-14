@@ -56,9 +56,9 @@ class Bedroom extends React.Component {
     const { room, allUsers } = this.props
     const { isEditing, dropdownOpen, hide } = this.state
     return (
-      <div className="floor-plan__room">
+      <div className="floor-plan__room box">
       {!isEditing
-       ? <div className="floor-plan__room--content">
+          ? <div className="box-content">
           {
             room.user && room.user.username
               ? <span>{room.user.username}</span>
@@ -72,7 +72,7 @@ class Bedroom extends React.Component {
           </div>
         </div>
         
-        : <div className="floor-plan__room--content">
+        : <div className="box-content">
             <Dropdown
               isOpen={dropdownOpen}
               onClose={() => this.handleEditing()}
@@ -84,7 +84,7 @@ class Bedroom extends React.Component {
               displayValue="username"
             />
             
-            <div className="floor-plan__room--footer edit" >
+            <div className="box-footer edit" >
             <button onClick={this.handleSubmit} className="btn btn-primary btn-action btn-sm">
               <i className="icon icon-check" />
             </button>
