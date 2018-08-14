@@ -2,7 +2,7 @@ import React from 'react';
 import { TopFloorBedroomsContainer as TopFloorBedrooms } from './TopFloorBedrooms'
 import { GroundFloorBedroomsContainer as GroundFloorBedrooms } from './GroundFloorBedrooms'
 
-class FloorPlan extends React.Component {
+class GroundFloorPlan extends React.Component {
   render() {
     const { loading } = this.props
     return (
@@ -11,7 +11,6 @@ class FloorPlan extends React.Component {
           loading 
           ? <div>Loading</div>
           : <div>
-              <TopFloorBedrooms />
               <GroundFloorBedrooms />
             </div>
         }
@@ -19,4 +18,4 @@ class FloorPlan extends React.Component {
     )
   }
 }
-export default FloorPlan
+export default GroundFloorPlan
