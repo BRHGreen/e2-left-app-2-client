@@ -1,0 +1,10 @@
+@import "variables.scss";
+.btn-action {
+  margin: 0!important;
+}
+.accordion {
+  z-index: 10;
+}
+.accordion-body {
+  background: $background-pale;
+}

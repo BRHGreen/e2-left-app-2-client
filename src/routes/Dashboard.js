@@ -10,7 +10,7 @@ class Dashboard extends React.Component {
         return (
             <div>
                 {getUser &&
-                  <div className="page-content">
+                  <div className="page__container">
                       <h1>Hi <span className="capalaize">{getUser.username}</span></h1>
                   </div>
                 }

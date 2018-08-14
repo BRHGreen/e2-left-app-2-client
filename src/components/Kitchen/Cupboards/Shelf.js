@@ -17,7 +17,7 @@ export class Shelf extends React.Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
-    const response = await this.props.updateOwner({
+    await this.props.updateOwner({
       variables: { id: this.props.shelf.id, owner: this.state.newOwner }
     })
     console.log("this.props", this.props)
@@ -48,8 +48,8 @@ export class Shelf extends React.Component {
                     key="3"
                     onClick={() => this.handleEditing()}
                   >
-                    EDIT
-              </span>
+                  EDIT
+                  </span>
                 ]
               : <form onSubmit={this.handleSubmit}>
                 <select onChange={(e) => this.onChangeHandler(e)} defaultValue={shelf.user && shelf.user.id}>

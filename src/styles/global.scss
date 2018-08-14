@@ -1,7 +1,10 @@
 @import "variables.scss"; 
 
+p {
+  margin: $margin-sm 0;
+}
 .btn {
-    margin: 5px;
+    margin: $margin-sm;
     &__edit-icon {
       border: none;
     }
@@ -13,8 +16,8 @@
 }
 
 input {
-  margin-bottom: .5em;
-  padding: 5px;
+  margin-bottom: $margin-sm;
+  padding: $padding-sm;
 }
 
 input::-webkit-input-placeholder {
@@ -27,4 +30,13 @@ li {
     list-style: none;
 }
 
+.text-xs {
+  font-size: $text-xs;
+}
+.text-sm {
+  font-size: $text-sm;
+}
 
+.line-height-lg {
+  line-height: $line-height-lg;
+}

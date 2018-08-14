@@ -17,6 +17,7 @@ class MainlandWestCupboards extends React.Component {
 
   render () {
     const { mainlandWestCupboards, allUsers: { allUsers } } = this.props
+    console.log(this.props.getMainlandWestCupboards)
     return (
       <div className="mainland-west-cupboards__container">
         {
@@ -42,8 +43,8 @@ class MainlandWestCupboards extends React.Component {
                       </div>
                     )
                   }
-                }
-                )
+                  return null
+                  })
                 }
                 <div className="mainland-west__cupboard mainland-west__cupboard--sink">sink</div>{this.props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
                   if (
@@ -64,6 +65,7 @@ class MainlandWestCupboards extends React.Component {
                       </div>
                     )
                   }
+                  return null
                 }
                 )
                 }
@@ -101,6 +103,7 @@ class MainlandWestCupboards extends React.Component {
                     </div>
                   )
                 }
+                return null
               }
               )
               }

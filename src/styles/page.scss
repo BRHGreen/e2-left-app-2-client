@@ -1,7 +1,12 @@
 @import "variables.scss";
 
-.page-content {
-    padding: $padding-lg;
+.page{
+  &__container {
+      padding: $padding-lg;
+  }
+  &__content {
+      margin-bottom: $margin-md;
+  }
 }
 form {
     display: flex;

@@ -5,7 +5,6 @@ import { MainlandWestCupboardsContainer as MainlandWestCupboards }
 from './Cupboards/MainlandWestCupboards'
 import { MainlandEastCupboardsContainer as MainlandEastCupboards }
 from './Cupboards/MainlandEastCupboards'
-import { convertCasing } from '../../utilities/casing'
 
 class Kitchen extends React.Component {
   state = {

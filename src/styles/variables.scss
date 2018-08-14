@@ -1,10 +1,26 @@
-$background-color-pale:#F8F9FA;
+$background-pale:#F8F9FA;
+$background-contrast:#FFF;
 
 $text-color-brand-primary: #5755d9;
 
-$padding-lg: 20px;
-$padding-md: 10px;
-$padding-sm: 5px;
+$spacing-lg: 2em;
+$spacing-md: 1em;
+$spacing-sm: .5em;
+
+$padding-lg: $spacing-lg;
+$padding-md: $spacing-md;
+$padding-sm: $spacing-sm;
+
+$margin-lg: $spacing-lg;
+$margin-md: $spacing-md;
+$margin-sm: $spacing-sm;
+
+$text-xs: 0.6em;
+$text-sm: 0.8em;
+
+$line-height-lg: $spacing-lg;
 
 $grey: #DAD9D9;
 $blue: #A6C5FE;
+
+$nav-header-height: 60px;

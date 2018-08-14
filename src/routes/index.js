@@ -6,15 +6,14 @@ import Login from './auth/Login'
 import UserProfile from './UserProfile'
 import Navbar from '../components/Navbar'
 import Kitchen from '../components/Kitchen/Kitchen'
+import FloorPlan from '../components/FloorPlan/FloorPlan'
 import { MainlandWestCupboardsContainer } from '../components/Kitchen/Cupboards/MainlandWestCupboards'
 
 import {
   // history,
   BrowserRouter as Router,
   Route,
-  Switch,
   Redirect,
-  params,
 } from 'react-router-dom'
 
 const isAuthenticated = () => {
@@ -49,12 +48,13 @@ export default () =>(
   <Router>
     <div>
       <Route component={Navbar} />
+      <Route path="/register" exact component={Register} />
+      <Route path="/login" exact component={Login} />
       <PrivateRoute path="/" exact component={AppWithMutations} />
       <PrivateRoute path="/user-profile" exact component={UserProfile} />
       <PrivateRoute path="/kitchen" exact component={Kitchen} />
       <PrivateRoute path="/kitchen/mainland-west" exact component={MainlandWestCupboardsContainer} />
-      <Route path="/register" exact component={Register} />
-      <Route path="/login" exact component={Login} />
+      <PrivateRoute path="/floor-plan" exact component={FloorPlan} />
     </div>
   </Router>
 )
