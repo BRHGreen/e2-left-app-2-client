@@ -52,5 +52,7 @@
 .mainland-west__cupboard {
   display: inline-block;
   width: calc(100% / 6); }
+  .mainland-west__cupboard--shelf {
+    height: 100px; }
   .mainland-west__cupboard--sink {
     text-align: center; }

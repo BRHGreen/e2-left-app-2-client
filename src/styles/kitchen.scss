@@ -68,6 +68,9 @@
 
 .mainland-west {
   &__cupboard {
+    &--shelf {
+      height: 100px;
+    }
     display: inline-block;
     width: calc(100% / 6);
     &--sink {

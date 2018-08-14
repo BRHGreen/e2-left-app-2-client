@@ -63,7 +63,7 @@ export class Shelf extends React.Component {
       this.props.loading
         ? <div>Loading</div>
         : <div
-          className="box"
+          className="box mainland-west__cupboard--shelf"
         >
               {!this.state.isEditing
             ? <div className="box-content">
