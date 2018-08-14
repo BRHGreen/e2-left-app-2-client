@@ -79,8 +79,7 @@ export class Shelf extends React.Component {
                   </button>
                   </div>
                 </div>
-                : 
-                <div>
+                : <div className="box-content">
                   <Dropdown
                     isOpen={dropdownOpen}
                     onClose={() => this.handleEditing()}
@@ -91,7 +90,7 @@ export class Shelf extends React.Component {
                     onChangeHandler={(user) => this.onChangeHandler(user)}
                     displayValue={"username"}
                   />
-                  <div className="floor-plan__room--footer edit" >
+                  <div className="box-footer edit" >
                     <button onClick={this.handleSubmit} className="btn btn-primary btn-action btn-sm">
                       <i className="icon icon-check" />
                     </button>

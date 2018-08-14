@@ -22,7 +22,6 @@
 .floor-plan__container {
   height: calc(100vh - 60px);
   width: 100%;
-  border: 1px solid;
   position: relative; }
 
 .floor-plan__room {

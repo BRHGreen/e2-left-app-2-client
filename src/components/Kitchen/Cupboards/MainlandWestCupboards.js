@@ -12,7 +12,7 @@ class MainlandWestCupboards extends React.Component {
     const { mainlandWestCupboards, allUsers: { allUsers } } = this.props
     console.log(this.props.getMainlandWestCupboards)
     return (
-      <div className="mainland-west-cupboards__container">
+      <div className="page__container">
         {
           this.props.mainlandWestCupboards.loading
             ? <div>Loading</div>
@@ -62,7 +62,7 @@ class MainlandWestCupboards extends React.Component {
                 )
                 }
               </div>
-              <div className="mainland-west__cupboard--bottom--container">{this.props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
+              <div>{this.props.mainlandWestCupboards.getMainlandWestCupboards.map((cupboard, i, arr) => {
                 if (!arr[i + 1]) {
                   return (
                     <div key={i} className="mainland-west__cupboard">

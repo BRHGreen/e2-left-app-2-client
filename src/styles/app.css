@@ -144,11 +144,6 @@ nav {
   height: 10%;
   width: 10%; }
 
-.mainland-west-cupboards__container {
-  position: relative;
-  height: 400px;
-  width: 100%; }
-
 .mainland-west__cupboard {
   display: inline-block;
   width: calc(100% / 6); }
@@ -181,7 +176,6 @@ nav {
 .floor-plan__container {
   height: calc(100vh - 60px);
   width: 100%;
-  border: 1px solid;
   position: relative; }
 
 .floor-plan__room {
