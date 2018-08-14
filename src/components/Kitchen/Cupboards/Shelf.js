@@ -63,19 +63,19 @@ export class Shelf extends React.Component {
       this.props.loading
         ? <div>Loading</div>
         : <div
-          className={className}
+          className={`${className} box`}
         >
-          <span className="kitchen-shelf--number">{shelf.cupboardNumber}</span>
-            <div>
               {!this.state.isEditing
-                ? [
-                  <span key="1">{this.props.owner}</span>,
-                  <br key="2"/>,
-                  <button key="3" className="btn btn-action btn-sm">
+            ? <div className="box-content">
+                  <span>{this.props.owner}</span>
+                  <div className="box-footer">
+                  <span className="text-xs">{shelf.cupboardNumber}</span>
+                  <button className="btn btn-action btn-sm">
                     <i onClick={() => this.handleEditing(true)} className="icon icon-edit" />
                   </button>
-                ]
-              : 
+                  </div>
+                </div>
+                : 
                 <div>
                   <Dropdown
                     isOpen={dropdownOpen}
@@ -98,7 +98,6 @@ export class Shelf extends React.Component {
                 </div>
               }
             </div>
-        </div>
 
     )
   }

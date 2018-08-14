@@ -5,17 +5,21 @@ export const Shelves = (props) => {
   const getShelves = props.allCupboards.filter(cupboard => {
     return Math.floor(cupboard.cupboardNumber) === Math.floor(props.cupboard.cupboardNumber)
   })
-  return getShelves.map((shelf, i) => (
-        <Shelf
-          key={i}
-          owner={shelf.user ? shelf.user.username : "unoccupied"}
-          className={`kitchen-shelf kitchen-shelf--${getShelves.length}`}
-          cupboardNumber={shelf.cupboardNumber}
-          shelf={shelf}
-          updateOwner={props.updateOwner}
-          allUsers={props.allUsers}
-          mainlandWestCupboards={props.mainlandWestCupboards}
-          landmass={props.landmass}
-        />
-      ))
+  return getShelves.map((shelf, i) => {
+
+    { console.log(shelf) }
+    return (
+          <Shelf
+            key={i}
+            owner={shelf.user ? shelf.user.username : "unoccupied"}
+            className={`kitchen-shelf kitchen-shelf--${getShelves.length}`}
+            cupboardNumber={shelf.cupboardNumber}
+            shelf={shelf}
+            updateOwner={props.updateOwner}
+            allUsers={props.allUsers}
+            mainlandWestCupboards={props.mainlandWestCupboards}
+            landmass={props.landmass}
+          />
+        )
+  })
 }

@@ -97,7 +97,6 @@ nav {
   height: 100vh;
   width: 100%;
   padding: 1em;
-  border: 1px solid black;
   position: relative; }
 
 .kitchen__cupboards__mainland-west, .kitchen__cupboards__mainland-east, .kitchen__cupboards__peninsula, .kitchen__cupboards__island {
@@ -142,26 +141,19 @@ nav {
 
 .mainland-west-cupboards__container {
   position: relative;
-  border: 1px solid;
   height: 400px;
   width: 100%; }
 
-.mainland-west-cupboards .mainlandWest-1 {
-  border: 1px solid; }
-
 .mainland-west__cupboard {
-  border: 1px solid;
   display: inline-block;
   width: calc(100% / 6);
   height: 100%;
   vertical-align: bottom; }
   .mainland-west__cupboard--top--container, .mainland-west__cupboard--bottom--container {
-    width: 100%;
-    height: 200px; }
+    width: 100%; }
   .mainland-west__cupboard--sink {
     height: auto;
-    text-align: center;
-    border: none; }
+    text-align: center; }
 
 .mainland-west--3, .mainland-west--4, .mainland-west--5 {
   height: 70%;
@@ -170,21 +162,6 @@ nav {
 .mainland-west--8, .mainland-west--9, .mainland-west--10, .mainland-west--11 {
   height: 90%;
   vertical-align: bottom; }
-
-.kitchen-shelf {
-  border: 1px solid lightgray;
-  position: relative; }
-  .kitchen-shelf--number {
-    position: absolute;
-    right: 0.5em;
-    bottom: 0.5em;
-    font-size: 0.6em; }
-
-.kitchen-shelf--2 {
-  height: 50%; }
-
-.kitchen-shelf--3 {
-  height: 33.33%; }
 
 .box {
   border: 1px solid lightgrey;
