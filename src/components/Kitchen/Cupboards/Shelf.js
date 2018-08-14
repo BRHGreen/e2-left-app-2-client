@@ -1,28 +1,51 @@
 import React from 'react';
+import Dropdown from '../../Common/Dropdown'
 
 export class Shelf extends React.Component {
   state = {
     isEditing: false,
-    newOwner: null,
+    newOwnerId: null,
+    newOwnerName: null,
+    dropdownOpen: false,
   }
 
-  handleEditing = () => {
-    this.setState({ isEditing: !this.state.isEditing })
+  handleEditing = (isOpen) => {
+    this.setState({
+      isEditing: isOpen,
+      dropdownOpen: isOpen,
+      newOwnerName: null,
+    })
   }
 
-  onChangeHandler(e) {
-    e.preventDefault()
-    this.setState({ newOwner: e.target.value })
+  onChangeHandler(newOwner) {
+    this.setState({
+      newOwnerId: newOwner.id,
+      newOwnerName: newOwner.username,
+      dropdownOpen: !this.state.dropdownOpen,
+    })
   }
 
-  handleSubmit = async (e) => {
-    e.preventDefault()
+  handleSubmit = async () => {
     await this.props.updateOwner({
-      variables: { id: this.props.shelf.id, owner: this.state.newOwner }
+      variables: { id: this.props.shelf.id, owner: this.state.newOwnerId }
     })
     console.log("this.props", this.props)
     this.props[this.props.landmass].refetch()
     this.setState({ isEditing: !this.state.isEditing })
+  }
+
+  getMenuItems() {
+    const { allUsers, shelf } = this.props
+    return allUsers && allUsers.map(user => {
+      if (shelf && user.id !== shelf.owner) {
+        return user
+      }
+      if (!shelf.owner) {
+        return user
+      }
+      return null
+    }
+    )
   }
 
   render() {
@@ -32,6 +55,10 @@ export class Shelf extends React.Component {
       allUsers,
     } = this.props
 
+    const {
+      dropdownOpen
+    } = this.state
+    
     return (
       this.props.loading
         ? <div>Loading</div>
@@ -44,35 +71,31 @@ export class Shelf extends React.Component {
                 ? [
                   <span key="1">{this.props.owner}</span>,
                   <br key="2"/>,
-                  <span
-                    key="3"
-                    onClick={() => this.handleEditing()}
-                  >
-                  EDIT
-                  </span>
+                  <button key="3" className="btn btn-action btn-sm">
+                    <i onClick={() => this.handleEditing(true)} className="icon icon-edit" />
+                  </button>
                 ]
-              : <form onSubmit={this.handleSubmit}>
-                <select onChange={(e) => this.onChangeHandler(e)} defaultValue={shelf.user && shelf.user.id}>
-                      {
-                        allUsers &&
-                        allUsers.map((user, i) => (
-                      <option
-                        key={i}
-                        value={user.id}
-                        onBlur={this.handleEditing}
-                      >
-                        {user.username}
-                      </option>
-                          )
-                        )
-                      }
-                      <option>unoccupied</option>
-                      <option>communal</option>
-                    </select>
-                  <button onClick={this.handleEditing}>cancel</button>
-                  <button>submit</button>
-                  </form>
-
+              : 
+                <div>
+                  <Dropdown
+                    isOpen={dropdownOpen}
+                    onClose={() => this.handleEditing()}
+                    header={
+                      this.state.newOwnerName || (shelf.user && shelf.user.username)
+                    }
+                    menuItems={this.getMenuItems()}
+                    onChangeHandler={(user) => this.onChangeHandler(user)}
+                    displayValue={"username"}
+                  />
+                  <div className="floor-plan__room--footer edit" >
+                    <button onClick={this.handleSubmit} className="btn btn-primary btn-action btn-sm">
+                      <i className="icon icon-check" />
+                    </button>
+                    <button className="btn btn-action btn-sm" onClick={() => this.handleEditing(false)}>
+                      <i className="icon icon-cross" />
+                    </button>
+                  </div>
+                </div>
               }
             </div>
         </div>

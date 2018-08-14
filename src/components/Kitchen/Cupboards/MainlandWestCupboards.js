@@ -4,6 +4,7 @@ import { getMainlandWestCupboards, updateOwner } from '../../../graphql/kitchen/
 import { allUsers } from '../../../graphql/user'
 import { camelCaseToDash } from '../../../utilities/casing'
 import { Shelves } from './Shelves'
+import { get } from 'https';
 
 class MainlandWestCupboards extends React.Component {
 
