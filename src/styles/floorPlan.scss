@@ -1,7 +1,9 @@
 @import "variables.scss";
 @import "common.scss";
 
-$room-break-height: 10%;
+$room-break-height: 5%;
+$room-width: calc(100% / 6);
+$room-height: 25%;
 
 .floor-plan {
   &__container {
@@ -11,13 +13,13 @@ $room-break-height: 10%;
   }
   &__room {
     display: inline-block;
-    width: calc(100% / 6);
+    width: $room-width;
     height: 100%;
     vertical-align: top;
     }
   }
 .room-container {
-  height: 25%;
+  height: $room-height;
   &--1, &--2 {
     .floor-plan__room:nth-child(3) {
       float: right;
@@ -26,7 +28,8 @@ $room-break-height: 10%;
 }
 
 .floor-plan__room--break {
-  background: lightblue; 
+  background: lightblue;
+  height: $room-break-height;
 }
 
 .top-floor {
@@ -44,4 +47,12 @@ $room-break-height: 10%;
   .full-height {
     border: 1px solid;
   }
+}
+
+.kitchen__content {
+  border: 1px solid;
+  width: calc(100% - #{$room-width} * 3);
+  position: absolute;
+  left: calc(#{$room-width} * 2);
+  height: calc((#{$room-height} * 2) + #{$room-break-height});
 }

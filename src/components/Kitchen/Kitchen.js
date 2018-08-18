@@ -18,8 +18,10 @@ class Kitchen extends React.Component {
   render () {
     return (
       <div className="full-height full-width absolute">
-            <Fridges />
-            <Cupboards />
+        <div className="kitchen__content">
+              <Fridges />
+              <Cupboards />
+        </div>
       </div>
     )
   }

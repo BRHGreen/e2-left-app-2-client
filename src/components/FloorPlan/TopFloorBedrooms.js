@@ -13,7 +13,7 @@ class TopFloorBedrooms extends React.Component {
       updateRoom
     } = this.props
     return (
-      <div>
+      <div className="bedrooms__content">
         <p><b>Bedrooms; Top Floor</b></p>
         <div className="full-height full-width absolute">
           <div className="room-container room-container--1">

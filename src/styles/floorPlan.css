@@ -36,7 +36,8 @@
     float: right; }
 
 .floor-plan__room--break {
-  background: lightblue; }
+  background: lightblue;
+  height: 5%; }
 
 .top-floor__container {
   width: 100%;
@@ -48,3 +49,10 @@
 
 .top-floor__container--kitchen .full-height {
   border: 1px solid; }
+
+.kitchen__content {
+  border: 1px solid;
+  width: calc(100% - calc(100% / 6) * 3);
+  position: absolute;
+  left: calc(calc(100% / 6) * 2);
+  height: calc((25% * 2) + 5%); }
