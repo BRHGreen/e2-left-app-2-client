@@ -29,9 +29,19 @@ $room-break-height: 10%;
   background: lightblue; 
 }
 
-// .top-floor {
-//   &__container {
-//     border: 1px solid;
-//     height: 500px;
-//   }
-// }
+.top-floor {
+  &__container {
+    width: 100%;
+    position: relative;
+  }
+  &__bedrooms--container {
+    position: absolute;
+    width: 100%;
+  }
+}
+
+.top-floor__container--kitchen {
+  .full-height {
+    border: 1px solid;
+  }
+}

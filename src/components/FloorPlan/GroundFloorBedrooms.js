@@ -14,7 +14,7 @@ class GroundFloorBedrooms extends React.Component {
     } = this.props
 
     return (
-      <div className="page__content">
+      <div>
         <p><b>Bedrooms; Ground Floor</b></p>
         <div>
           <div className="room-container--4">

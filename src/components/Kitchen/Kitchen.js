@@ -1,10 +1,6 @@
 import React from 'react';
 import Fridges from './Fridges'
 import Cupboards from './Cupboards/Cupboards'
-import { MainlandWestCupboardsContainer as MainlandWestCupboards }
-from './Cupboards/MainlandWestCupboards'
-import { MainlandEastCupboardsContainer as MainlandEastCupboards }
-from './Cupboards/MainlandEastCupboards'
 
 class Kitchen extends React.Component {
   state = {
@@ -21,13 +17,9 @@ class Kitchen extends React.Component {
   
   render () {
     return (
-      <div className="kitchen__wrapper">
-            <Fridges key="0"/>
-            <Cupboards
-              key="1"
-              cupboards={this.state}
-              handleViewChange={(cupboard) => this.handleViewChange(cupboard)}
-            />
+      <div className="full-height full-width absolute">
+            <Fridges />
+            <Cupboards />
       </div>
     )
   }

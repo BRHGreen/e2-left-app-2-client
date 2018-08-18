@@ -13,9 +13,9 @@ class TopFloorBedrooms extends React.Component {
       updateRoom
     } = this.props
     return (
-      <div className="page__content">
+      <div>
         <p><b>Bedrooms; Top Floor</b></p>
-        <div className="container--100vh">
+        <div className="full-height full-width absolute">
           <div className="room-container room-container--1">
           {
             getTopFloor && getTopFloor.map((room, i) => {

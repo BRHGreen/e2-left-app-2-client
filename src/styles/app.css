@@ -81,8 +81,11 @@ form {
   flex-direction: column;
   max-width: 50%; }
 
-.container--100vh {
+.full-height {
   height: 100vh; }
+
+.full-width {
+  width: 100%; }
 
 nav {
   width: 100%;
@@ -100,52 +103,6 @@ nav {
     justify-content: flex-end; }
     nav ul li {
       padding: 1em; }
-
-.kitchen__wrapper {
-  height: 100vh;
-  width: 100%;
-  padding: 1em;
-  position: relative; }
-
-.kitchen__cupboards__mainland-west, .kitchen__cupboards__mainland-east, .kitchen__cupboards__peninsula, .kitchen__cupboards__island {
-  background: #DAD9D9;
-  position: absolute; }
-
-.kitchen__cupboards__mainland-west {
-  height: 10%;
-  width: 40%;
-  right: 15%; }
-
-.kitchen__cupboards__mainland-east {
-  height: 60%;
-  width: 10%;
-  right: 0%;
-  top: 15%; }
-
-.kitchen__cupboards__peninsula {
-  height: 10%;
-  width: 50%;
-  right: 0%;
-  top: 75%; }
-
-.kitchen__cupboards__island {
-  width: 25%;
-  height: 40%;
-  top: 23%;
-  right: 23%; }
-
-.kitchen__fridges__west, .kitchen__fridges__east {
-  background: #A6C5FE;
-  position: absolute; }
-
-.kitchen__fridges__west {
-  height: 10%;
-  width: 45%; }
-
-.kitchen__fridges__east {
-  top: 20%;
-  height: 10%;
-  width: 10%; }
 
 .mainland-west__cupboard {
   display: inline-block;
@@ -194,3 +151,14 @@ nav {
 
 .floor-plan__room--break {
   background: lightblue; }
+
+.top-floor__container {
+  width: 100%;
+  position: relative; }
+
+.top-floor__bedrooms--container {
+  position: absolute;
+  width: 100%; }
+
+.top-floor__container--kitchen .full-height {
+  border: 1px solid; }

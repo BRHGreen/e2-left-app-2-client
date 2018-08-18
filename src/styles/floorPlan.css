@@ -37,3 +37,14 @@
 
 .floor-plan__room--break {
   background: lightblue; }
+
+.top-floor__container {
+  width: 100%;
+  position: relative; }
+
+.top-floor__bedrooms--container {
+  position: absolute;
+  width: 100%; }
+
+.top-floor__container--kitchen .full-height {
+  border: 1px solid; }
