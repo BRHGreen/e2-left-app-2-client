@@ -1,5 +1,12 @@
 @import "variables.scss";
 
+$corner-width: 5%;
+$corner-height: 15%;
+$mainland-east-width: 85%;
+$peninsula-width: 10%;
+$peninsula-height: 50%;
+$mainland-east-height: 40%;
+
 .mainland-west {
   &__cupboard {
     &--shelf {
@@ -10,5 +17,34 @@
     &--sink {
       text-align: center;
     }
+  }
+}
+
+.kitchen__cupboard {
+  border: 1px solid;
+  position: absolute;
+  &__corner {
+    width: $corner-width;
+    height: $corner-height;
+  }
+  &__mainland-east {
+    width: $mainland-east-width;
+    left: $corner-width;
+  }
+  &__peninsula {
+    width: $peninsula-width;
+    height: $peninsula-height;
+    right: 0;
+  }
+  &__mainland-west {
+    top: $corner-height;
+    width: $corner-width;
+    height: $mainland-east-height;
+  }
+  &__island {
+    top: 30%;
+    right: 25%;
+    height: 40%;
+    width: 50%;
   }
 }
