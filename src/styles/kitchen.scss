@@ -1,11 +1,12 @@
 @import "variables.scss";
 
-$corner-width: 5%;
+$corner-width: 10%;
 $corner-height: 15%;
-$mainland-east-width: 85%;
+$mainland-east-width: 80%;
 $peninsula-width: 10%;
 $peninsula-height: 50%;
 $mainland-east-height: 40%;
+
 
 .mainland-west {
   &__cupboard {
@@ -30,6 +31,7 @@ $mainland-east-height: 40%;
   &__mainland-east {
     width: $mainland-east-width;
     left: $corner-width;
+    height: $corner-height;
   }
   &__peninsula {
     width: $peninsula-width;
@@ -48,3 +50,4 @@ $mainland-east-height: 40%;
     width: 50%;
   }
 }
+

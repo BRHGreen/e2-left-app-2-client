@@ -116,18 +116,19 @@ nav {
   border: 1px solid;
   position: absolute; }
   .kitchen__cupboard__corner {
-    width: 5%;
+    width: 10%;
     height: 15%; }
   .kitchen__cupboard__mainland-east {
-    width: 85%;
-    left: 5%; }
+    width: 80%;
+    left: 10%;
+    height: 15%; }
   .kitchen__cupboard__peninsula {
     width: 10%;
     height: 50%;
     right: 0; }
   .kitchen__cupboard__mainland-west {
     top: 15%;
-    width: 5%;
+    width: 10%;
     height: 40%; }
   .kitchen__cupboard__island {
     top: 30%;
@@ -173,7 +174,7 @@ nav {
     float: right; }
 
 .floor-plan__room--break {
-  background: lightblue;
+  background: #F8F9FA;
   height: 5%; }
 
 .top-floor__container {
@@ -188,8 +189,14 @@ nav {
   border: 1px solid; }
 
 .kitchen__content {
-  border: 1px solid;
-  width: calc(100% - calc(100% / 6) * 3);
+  width: calc(100% - calc(100% / 6) * 3 - 5%);
   position: absolute;
   left: calc(calc(100% / 6) * 2);
   height: calc((25% * 2) + 5%); }
+
+.front-door {
+  position: absolute;
+  top: 0;
+  right: calc(100% / 6);
+  width: 5%;
+  text-align: center; }

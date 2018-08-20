@@ -10,7 +10,7 @@ const Cupboards = (props) => {
     'island',
   ]
     return (
-      <div>
+      <div className="kitchen-cupboards__container">
         {
           cupboards.map((cupboard, i) => {
             return (

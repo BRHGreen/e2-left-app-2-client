@@ -4,6 +4,7 @@
 $room-break-height: 5%;
 $room-width: calc(100% / 6);
 $room-height: 25%;
+$front-door-width: 5%;
 
 .floor-plan {
   &__container {
@@ -28,7 +29,7 @@ $room-height: 25%;
 }
 
 .floor-plan__room--break {
-  background: lightblue;
+  background: $background-pale;
   height: $room-break-height;
 }
 
@@ -50,9 +51,16 @@ $room-height: 25%;
 }
 
 .kitchen__content {
-  border: 1px solid;
-  width: calc(100% - #{$room-width} * 3);
+  width: calc(100% - #{$room-width} * 3 - #{$front-door-width});
   position: absolute;
   left: calc(#{$room-width} * 2);
   height: calc((#{$room-height} * 2) + #{$room-break-height});
+}
+
+.front-door {
+  position: absolute;
+  top: 0;
+  right: $room-width;
+  width: $front-door-width;
+  text-align: center;
 }
