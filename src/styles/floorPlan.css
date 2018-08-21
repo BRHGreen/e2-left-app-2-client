@@ -31,12 +31,13 @@
   vertical-align: top; }
 
 .room-container {
-  height: 25%; }
+  z-index: 10; }
+  .room-container--1, .room-container--2, .room-container--3 {
+    height: 25%; }
   .room-container--1 .floor-plan__room:nth-child(3), .room-container--2 .floor-plan__room:nth-child(3) {
     float: right; }
 
 .floor-plan__room--break {
-  background: #F8F9FA;
   height: 5%; }
 
 .top-floor__container {
@@ -48,7 +49,7 @@
   width: 100%; }
 
 .top-floor__container--kitchen .full-height {
-  border: 1px solid; }
+  border: 1px solid lightgrey; }
 
 .kitchen__content {
   width: calc(100% - calc(100% / 6) * 3 - 5%);

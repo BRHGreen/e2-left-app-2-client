@@ -15,8 +15,8 @@ class TopFloorBedrooms extends React.Component {
     return (
       <div className="bedrooms__content">
         <p><b>Bedrooms; Top Floor</b></p>
-        <div className="full-height full-width absolute">
-          <div className="room-container room-container--1">
+        <div className="full-height full-width absolute room-container">
+          <div className=" room-container--1">
           {
             getTopFloor && getTopFloor.map((room, i) => {
               if (room.roomNumber <= 3) {

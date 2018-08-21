@@ -20,7 +20,10 @@ $front-door-width: 5%;
     }
   }
 .room-container {
+  z-index: 10;
+  &--1, &--2, &--3 {
   height: $room-height;
+  }
   &--1, &--2 {
     .floor-plan__room:nth-child(3) {
       float: right;
@@ -29,7 +32,6 @@ $front-door-width: 5%;
 }
 
 .floor-plan__room--break {
-  background: $background-pale;
   height: $room-break-height;
 }
 
@@ -46,7 +48,7 @@ $front-door-width: 5%;
 
 .top-floor__container--kitchen {
   .full-height {
-    border: 1px solid;
+    border: 1px solid $border-primary;
   }
 }
 
