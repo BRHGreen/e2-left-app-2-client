@@ -20,7 +20,7 @@ $front-door-width: 5%;
     }
   }
 .room-container {
-  z-index: 10;
+  // z-index: 10;
   &--1, &--2, &--3 {
   height: $room-height;
   }
@@ -53,6 +53,7 @@ $front-door-width: 5%;
 }
 
 .kitchen__content {
+  z-index: 20;
   width: calc(100% - #{$room-width} * 3 - #{$front-door-width});
   position: absolute;
   left: calc(#{$room-width} * 2);

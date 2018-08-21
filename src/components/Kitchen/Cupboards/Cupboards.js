@@ -1,7 +1,7 @@
 import React from 'react';
 import { convertCasing } from '../../../utilities/casing'
 
-const Cupboards = (props) => {
+const Cupboards = ({ handleViewChange }) => {
   const cupboards = [
     'corner',
     'mainland-east',
@@ -17,6 +17,7 @@ const Cupboards = (props) => {
               <div
                 key={i}
                 className={`kitchen__cupboard kitchen__cupboard__${cupboard}`}
+                onClick={() => handleViewChange(cupboard)}
               >
                 {i}
               </div>

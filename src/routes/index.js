@@ -11,7 +11,6 @@ import GroundFloorPlan from '../components/FloorPlan/GroundFloorPlan'
 import { MainlandWestCupboardsContainer } from '../components/Kitchen/Cupboards/MainlandWestCupboards'
 
 import {
-  // history,
   BrowserRouter as Router,
   Route,
   Redirect,

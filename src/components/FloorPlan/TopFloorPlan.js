@@ -4,6 +4,7 @@ import Kitchen from '../Kitchen/Kitchen'
 
 class TopFloorPlan extends React.Component {
   render() {
+    console.log(this.props)
     const { loading } = this.props
     return (
       <div className="page__container">
@@ -15,7 +16,7 @@ class TopFloorPlan extends React.Component {
                   <TopFloorBedrooms />
                 </div>
                 <div className="top-floor__container--kitchen">
-                  <Kitchen />
+                  <Kitchen history={this.props.history} />
                 </div>
               </div>
         }
