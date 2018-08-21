@@ -1,17 +1,8 @@
 import React from 'react';
 import { TopFloorBedroomsContainer as TopFloorBedrooms } from './TopFloorBedrooms'
-import Kitchen from '../Kitchen/Kitchen'
-import { GroundFloorBedroomsContainer as GroundFloorBedrooms } from './GroundFloorBedrooms'
 
-class TopFloorPlan extends React.Component {
-  state = {
-    isTopFloorView: true
-  }
-
-
-  
-  render() {
-    const { loading } = this.props
+const TopFloorPlan = (props) => {
+    const { loading } = props
     return (
       <div className="full-height">
         {
@@ -22,5 +13,5 @@ class TopFloorPlan extends React.Component {
       </div>
     )
   }
-}
+
 export default TopFloorPlan

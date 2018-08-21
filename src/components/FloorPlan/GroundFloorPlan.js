@@ -1,18 +1,21 @@
 import React from 'react';
 import { GroundFloorBedroomsContainer as GroundFloorBedrooms } from './GroundFloorBedrooms'
+import Utilities from './Utilities'
 
-class GroundFloorPlan extends React.Component {
-  render() {
-    const { loading } = this.props
+const GroundFloorPlan = (props) => {
+    const { loading } = props
     return (
-      <div className="full-height">
+      <div>
         {
           loading 
           ? <div>Loading</div>
-          : <GroundFloorBedrooms />
+          : <div className="full-height">
+              <GroundFloorBedrooms />
+              <Utilities />
+            </div>
         }
       </div>
     )
   }
-}
+
 export default GroundFloorPlan

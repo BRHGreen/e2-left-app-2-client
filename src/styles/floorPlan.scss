@@ -57,7 +57,7 @@ $front-door-width: 5%;
 }
 
 .ground-floor__bedrooms, .top-floor__bedrooms {
-  height: calc(100% - #{$nav-header-height});
+  height: 100%;
   position: relative;
 }
 
@@ -65,7 +65,7 @@ $front-door-width: 5%;
   width: calc(100% - #{$room-width} * 3 - #{$front-door-width});
   position: absolute;
   left: calc(#{$room-width} * 2);
-  height: calc((#{$room-height} * 2) + #{$room-break-height});
+  height: calc(#{$room-height} * 2);
 }
 
 .front-door {
@@ -74,4 +74,13 @@ $front-door-width: 5%;
   right: $room-width;
   width: $front-door-width;
   text-align: center;
+}
+
+.utilities__container {
+  border: 1px solid $border-primary;
+  position: absolute;
+  top: 0;
+  width: calc(#{$room-width} * 2);
+  height: calc(#{$room-height} * 2 + #{$room-break-height} * 2);
+
 }
