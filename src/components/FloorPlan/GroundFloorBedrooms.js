@@ -14,10 +14,8 @@ class GroundFloorBedrooms extends React.Component {
     } = this.props
 
     return (
-      <div>
-        <p><b>Bedrooms; Ground Floor</b></p>
-        <div>
-          <div className="room-container--4">
+      <div className="ground-floor__bedrooms">
+      <div className="room-container--4">
           {
             getGroundFloor && getGroundFloor.map((room, i) => {
                 return (
@@ -33,8 +31,7 @@ class GroundFloorBedrooms extends React.Component {
                 )
             })
           }
-          </div>
-        </div>
+      </div>
       </div>
     )
   }

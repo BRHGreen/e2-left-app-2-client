@@ -42,3 +42,7 @@
     left: 20%;
     height: 10%;
     width: 5%; }
+
+.kitchen__cupboard:hover, .kitchen__fridge:hover {
+  background: #F8F9FA;
+  cursor: pointer; }

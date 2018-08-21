@@ -68,3 +68,12 @@ $fridge-west-width: 8%;
     width: 5%;
   }
 }
+
+.kitchen {
+  &__cupboard,  &__fridge {
+    &:hover {
+      background: $background-pale;
+      cursor: pointer;
+    }
+  }
+}

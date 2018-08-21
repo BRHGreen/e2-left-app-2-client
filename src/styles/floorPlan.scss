@@ -20,14 +20,16 @@ $front-door-width: 5%;
     }
   }
 .room-container {
-  // z-index: 10;
-  &--1, &--2, &--3 {
+  &--1, &--2, &--3, &--4 {
   height: $room-height;
   }
   &--1, &--2 {
     .floor-plan__room:nth-child(3) {
       float: right;
     }
+  }
+  &--4 {
+    width: 100%;
   }
 }
 
@@ -50,6 +52,12 @@ $front-door-width: 5%;
   .full-height {
     border: 1px solid $border-primary;
   }
+}
+
+.ground-floor__bedrooms {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
 }
 
 .kitchen__content {

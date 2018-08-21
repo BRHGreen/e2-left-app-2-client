@@ -149,6 +149,10 @@ nav {
     height: 10%;
     width: 5%; }
 
+.kitchen__cupboard:hover, .kitchen__fridge:hover {
+  background: #F8F9FA;
+  cursor: pointer; }
+
 .box {
   border: 1px solid lightgrey;
   word-wrap: break-word;
@@ -181,11 +185,14 @@ nav {
   height: 100%;
   vertical-align: top; }
 
-.room-container--1, .room-container--2, .room-container--3 {
+.room-container--1, .room-container--2, .room-container--3, .room-container--4 {
   height: 25%; }
 
 .room-container--1 .floor-plan__room:nth-child(3), .room-container--2 .floor-plan__room:nth-child(3) {
   float: right; }
+
+.room-container--4 {
+  width: 100%; }
 
 .floor-plan__room--break {
   height: 5%; }
@@ -200,6 +207,11 @@ nav {
 
 .top-floor__container--kitchen .full-height {
   border: 1px solid lightgrey; }
+
+.ground-floor__bedrooms {
+  height: 100%;
+  display: flex;
+  align-items: flex-end; }
 
 .kitchen__content {
   z-index: 20;

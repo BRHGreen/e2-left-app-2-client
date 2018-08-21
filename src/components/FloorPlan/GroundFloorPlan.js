@@ -10,9 +10,7 @@ class GroundFloorPlan extends React.Component {
         {
           loading 
           ? <div>Loading</div>
-          : <div>
-              <GroundFloorBedrooms />
-            </div>
+          : <GroundFloorBedrooms />
         }
       </div>
     )
