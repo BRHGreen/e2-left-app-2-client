@@ -17,7 +17,7 @@ class Kitchen extends React.Component {
   
   render () {
     return (
-      <div className="full-height full-width absolute">
+      <div>
         <div className="front-door" >Front Door</div>
         <div className="kitchen__content">
           <Cupboards handleViewChange={(cupboard) => this.handleViewChange(cupboard)}/>
