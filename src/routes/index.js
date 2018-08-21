@@ -6,7 +6,7 @@ import Login from './auth/Login'
 import UserProfile from './UserProfile'
 import Navbar from '../components/Navbar'
 import Kitchen from '../components/Kitchen/Kitchen'
-import TopFloorPlan from '../components/FloorPlan/TopFloorPlan'
+import FloorPlan from '../components/FloorPlan/FloorPlan'
 import GroundFloorPlan from '../components/FloorPlan/GroundFloorPlan'
 import { MainlandWestCupboardsContainer } from '../components/Kitchen/Cupboards/MainlandWestCupboards'
 
@@ -55,7 +55,7 @@ export default () =>(
       <PrivateRoute path="/kitchen" exact component={Kitchen} />
       <PrivateRoute path="/kitchen/mainland-west" exact component={MainlandWestCupboardsContainer} />
       <PrivateRoute path="/ground-floor-plan" exact component={GroundFloorPlan} />
-      <PrivateRoute path="/top-floor-plan" exact component={TopFloorPlan} />
+      <PrivateRoute path="/floor-plan" exact component={FloorPlan} />
     </div>
   </Router>
 )

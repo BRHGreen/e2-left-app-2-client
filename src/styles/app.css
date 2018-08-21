@@ -192,7 +192,9 @@ nav {
   float: right; }
 
 .room-container--4 {
-  width: 100%; }
+  width: 100%;
+  position: absolute;
+  top: calc(25% * 2 + 5% * 2); }
 
 .floor-plan__room--break {
   height: 5%; }
@@ -208,13 +210,11 @@ nav {
 .top-floor__container--kitchen .full-height {
   border: 1px solid lightgrey; }
 
-.ground-floor__bedrooms {
-  height: 100%;
-  display: flex;
-  align-items: flex-end; }
+.ground-floor__bedrooms, .top-floor__bedrooms {
+  height: calc(100% - 60px);
+  position: relative; }
 
 .kitchen__content {
-  z-index: 20;
   width: calc(100% - calc(100% / 6) * 3 - 5%);
   position: absolute;
   left: calc(calc(100% / 6) * 2);

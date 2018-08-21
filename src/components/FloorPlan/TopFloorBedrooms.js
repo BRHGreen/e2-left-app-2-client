@@ -13,8 +13,8 @@ class TopFloorBedrooms extends React.Component {
       updateRoom
     } = this.props
     return (
-      <div className="full-height">
-          <div className=" room-container--1">
+      <div className="top-floor__bedrooms">
+          <div className="room-container--1">
           {
             getTopFloor && getTopFloor.map((room, i) => {
               if (room.roomNumber <= 3) {
