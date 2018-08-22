@@ -51,7 +51,7 @@ class Utility extends React.Component {
     const { utility } = this.props
     const { isEditing, dropdownOpen, hide } = this.state
     return (
-      <div className="utility box">
+      <div className={`utility box utility__${utility.utilityType}`}>
       {!isEditing
           ? <div className="box-content">
           {

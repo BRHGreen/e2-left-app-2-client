@@ -7,7 +7,7 @@ const Utilities = (props) => {
   const { getUtilities: { getUtilities, loading } } = props
   console.log('props', props)
   return (
-    <div className="utilities__container">
+    <div className="utilities__container relative">
       {
         loading ? <div>Loading</div>
         : getUtilities && getUtilities.map((utility, i) => {
