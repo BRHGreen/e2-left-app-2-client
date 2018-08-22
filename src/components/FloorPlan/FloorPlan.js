@@ -20,7 +20,8 @@ class FloorPlan extends React.Component {
             ? <div>Loading</div>
             : <div>
               <button onClick={() => this.setState({ isTopFloorView: !this.state.isTopFloorView })}>change view</button>
-              <div>
+              <div className="relative">
+                <Kitchen />
                 {
                   this.state.isTopFloorView
                     ? <TopFloorPlan />

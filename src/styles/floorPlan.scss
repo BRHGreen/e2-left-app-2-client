@@ -43,8 +43,7 @@ $front-door-width: 5%;
 }
 
 .workshop__container,
-.utilities__container,
-.kitchen__container {
+.utilities__container {
   border: 1px solid $border-primary;
   display: inline-block;
   height: calc(#{$unit-height} * 3);
@@ -60,4 +59,5 @@ $front-door-width: 5%;
   position: absolute;
   left: calc(#{$unit-width} * 2);
   width: calc(#{$unit-width} * 2.75);
+  height: 60%;
 }

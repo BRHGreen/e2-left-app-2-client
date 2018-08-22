@@ -10,8 +10,7 @@ const TopFloorPlan = (props) => {
           loading 
           ? <div>Loading</div>
           
-            : <div className="full-height-vh--page relative">
-              <Kitchen />
+            : <div className="full-height-vh--page ">
               <TopFloorBedrooms />
             </div>
         }

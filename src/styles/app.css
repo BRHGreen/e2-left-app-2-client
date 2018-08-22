@@ -210,8 +210,7 @@ nav {
   width: calc(100% / 6); }
 
 .workshop__container,
-.utilities__container,
-.kitchen__container {
+.utilities__container {
   border: 1px solid lightgrey;
   display: inline-block;
   height: calc(25% * 3); }
@@ -226,4 +225,5 @@ nav {
 .kitchen__container {
   position: absolute;
   left: calc(calc(100% / 6) * 2);
-  width: calc(calc(100% / 6) * 2.75); }
+  width: calc(calc(100% / 6) * 2.75);
+  height: 60%; }
