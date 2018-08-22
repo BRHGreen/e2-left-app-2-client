@@ -6,7 +6,7 @@ import Kitchen from '../Kitchen/Kitchen'
 
 class FloorPlan extends React.Component {
   state = {
-    isTopFloorView: false
+    isTopFloorView: true
   }
 
 

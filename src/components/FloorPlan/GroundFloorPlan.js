@@ -11,7 +11,7 @@ const GroundFloorPlan = (props) => {
         {
           loading 
           ? <div>Loading</div>
-          : <div className="full-height-vh--page">
+            : <div className="full-height-vh--page relative">
               <Utilities />
               <Kitchen history={props.history} />
               <Workshop />

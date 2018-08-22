@@ -11,6 +11,32 @@ $front-door-width: 5%;
   flex-direction: row;
   height: $unit-height;
 }
+.top-floor__bedrooms {
+  height: 100%;
+  position: relative;
+}
+.room-container--1, .room-container--2, .room-container--3 {
+  height: $unit-height;
+  .bedroom {
+    height: 100%;
+    display: inline-block;
+  }
+}
+.room-container--1, .room-container--2 {
+  .bedroom:nth-child(3) {
+      float: right;
+  }
+}
+.room-container--2, .room-container--3 {
+  position: absolute;
+  width: 100%;
+}
+.room-container--2 {
+  bottom: 30%;
+}
+.room-container--3 {
+  bottom: 0;
+}
 
 .bedroom {
   width: $unit-width;
@@ -31,5 +57,7 @@ $front-door-width: 5%;
   width: $unit-width;
 }
 .kitchen__container {
+  position: absolute;
+  left: calc(#{$unit-width} * 2);
   width: calc(#{$unit-width} * 2.75);
 }

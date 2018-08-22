@@ -1,14 +1,19 @@
 import React from 'react';
 import { TopFloorBedroomsContainer as TopFloorBedrooms } from './TopFloorBedrooms'
+import Kitchen from '../Kitchen/Kitchen';
 
 const TopFloorPlan = (props) => {
     const { loading } = props
     return (
-      <div className="full-height">
+      <div>
         {
           loading 
           ? <div>Loading</div>
-          : <TopFloorBedrooms />
+          
+            : <div className="full-height-vh--page relative">
+              <Kitchen />
+              <TopFloorBedrooms />
+            </div>
         }
       </div>
     )

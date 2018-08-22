@@ -62,7 +62,7 @@ class Bedroom extends React.Component {
           {
             room.user && room.user.username
               ? <span>{room.user.username}</span>
-              : <span className="text-gray text-sm line-height-lg">unoccupied</span>
+              : <span className="text-gray">unoccupied</span>
           }
             <div className="box-footer">
             <span className="floor-plan__room--number text-xs">{`no: ${room.roomNumber}`}</span>

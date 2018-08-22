@@ -34,7 +34,6 @@ class TopFloorBedrooms extends React.Component {
             })
           }
           </div>
-          <div className="floor-plan__room--break one">break</div>
           <div className="room-container room-container--2">
           {
             getTopFloor && getTopFloor.map((room, i) => {
@@ -55,7 +54,6 @@ class TopFloorBedrooms extends React.Component {
             })
           }
           </div>
-          <div className="floor-plan__room--break two">break</div>
           <div className="room-container room-container--3">
           {
             getTopFloor && getTopFloor.map((room, i) => {

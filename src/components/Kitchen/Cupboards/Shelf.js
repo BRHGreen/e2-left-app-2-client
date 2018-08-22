@@ -70,7 +70,7 @@ export class Shelf extends React.Component {
                   {
                     shelf.user && shelf.user.username
                     ? <span>{shelf.user.username}</span>
-                    : <span className="text-gray text-sm line-height-lg">unoccupied</span>
+                    : <span className="text-gray">unoccupied</span>
                   }
                   <div className="box-footer">
                   <span className="text-xs">{shelf.cupboardNumber}</span>
