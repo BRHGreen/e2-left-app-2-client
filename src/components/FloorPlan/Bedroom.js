@@ -56,7 +56,7 @@ class Bedroom extends React.Component {
     const { room, allUsers } = this.props
     const { isEditing, dropdownOpen, hide } = this.state
     return (
-      <div className="floor-plan__room box">
+      <div className="bedroom box">
       {!isEditing
           ? <div className="box-content">
           {

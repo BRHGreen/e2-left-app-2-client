@@ -18,17 +18,14 @@ class FloorPlan extends React.Component {
         {
           loading
             ? <div>Loading</div>
-            : <div className="top-floor__container full-height full-width">
+            : <div>
               <button onClick={() => this.setState({ isTopFloorView: !this.state.isTopFloorView })}>change view</button>
-              <div className="full-height full-width absolute room-container">
+              <div>
                 {
                   this.state.isTopFloorView
                     ? <TopFloorPlan />
                     : <GroundFloorPlan />
                 }
-              </div>
-              <div className="top-floor__container--kitchen">
-                <Kitchen history={this.props.history} />
               </div>
             </div>
         }

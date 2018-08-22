@@ -2,85 +2,34 @@
 @import "common.scss";
 
 $room-break-height: 5%;
-$room-width: calc(100% / 6);
-$room-height: 25%;
+$unit-width: calc(100% / 6);
+$unit-height: 25%;
 $front-door-width: 5%;
 
-.floor-plan {
-  &__container {
-    height: calc(100vh - #{$nav-header-height});
-    width: 100%;
-    position: relative;
-  }
-  &__room {
-    display: inline-block;
-    width: $room-width;
-    height: 100%;
-    vertical-align: top;
-    }
-  }
-.room-container {
-  &--1, &--2, &--3, &--4 {
-  height: $room-height;
-  }
-  &--1, &--2 {
-    .floor-plan__room:nth-child(3) {
-      float: right;
-    }
-  }
-  &--4 {
-    width: 100%;
-    position: absolute;
-    top: calc(#{$room-height} * 2 + #{$room-break-height} * 2);
-  }
+.ground-floor__bedrooms {
+  display: flex;
+  flex-direction: row;
+  height: $unit-height;
 }
 
-.floor-plan__room--break {
-  height: $room-break-height;
+.bedroom {
+  width: $unit-width;
 }
 
-.top-floor {
-  &__container {
-    width: 100%;
-    position: relative;
-  }
-  &__bedrooms--container {
-    position: absolute;
-    width: 100%;
-  }
-}
-
-.top-floor__container--kitchen {
-  .full-height {
-    border: 1px solid $border-primary;
-  }
-}
-
-.ground-floor__bedrooms, .top-floor__bedrooms {
-  height: 100%;
-  position: relative;
-}
-
-.kitchen__content {
-  width: calc(100% - #{$room-width} * 3 - #{$front-door-width});
-  position: absolute;
-  left: calc(#{$room-width} * 2);
-  height: calc(#{$room-height} * 2);
-}
-
-.front-door {
-  position: absolute;
-  top: 30px;
-  right: $room-width;
-  width: $front-door-width;
-  text-align: center;
-}
-
-.utilities__container {
+.workshop__container,
+.utilities__container,
+.kitchen__container {
   border: 1px solid $border-primary;
-  position: absolute;
-  top: 0;
-  width: calc(#{$room-width} * 2);
-  height: calc(#{$room-height} * 2 + #{$room-break-height} * 2);
-
+  display: inline-block;
+  height: calc(#{$unit-height} * 3);
+}
+.utilities__container {
+  width: calc(#{$unit-width} * 2);
+}
+.workshop__container {
+  float: right;
+  width: $unit-width;
+}
+.kitchen__container {
+  width: calc(#{$unit-width} * 2.75);
 }

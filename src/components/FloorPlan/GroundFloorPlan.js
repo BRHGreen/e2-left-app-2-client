@@ -1,6 +1,8 @@
 import React from 'react';
 import { GroundFloorBedroomsContainer as GroundFloorBedrooms } from './GroundFloorBedrooms'
 import Utilities from './Utilities'
+import Workshop from './Workshop'
+import Kitchen from '../Kitchen/Kitchen'
 
 const GroundFloorPlan = (props) => {
     const { loading } = props
@@ -9,9 +11,11 @@ const GroundFloorPlan = (props) => {
         {
           loading 
           ? <div>Loading</div>
-          : <div className="full-height">
-              <GroundFloorBedrooms />
+          : <div className="full-height-vh--page">
               <Utilities />
+              <Kitchen history={props.history} />
+              <Workshop />
+              <GroundFloorBedrooms />
             </div>
         }
       </div>

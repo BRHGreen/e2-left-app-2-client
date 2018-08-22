@@ -17,13 +17,12 @@ class Kitchen extends React.Component {
   
   render () {
     return (
-      <div>
-        <div className="front-door" >Front Door</div>
-        <div className="kitchen__content">
-          <Cupboards handleViewChange={(cupboard) => this.handleViewChange(cupboard)}/>
-          <Fridges />
+        <div className="kitchen__container">
+        kitchen
+        {/* <div className="front-door" >Front Door</div> */}
+          {/* <Cupboards handleViewChange={(cupboard) => this.handleViewChange(cupboard)}/> */}
+          {/* <Fridges /> */}
         </div>
-      </div>
     )
   }
 }
