@@ -1,6 +1,6 @@
 import React from 'react';
 import { GroundFloorBedroomsContainer as GroundFloorBedrooms } from './GroundFloorBedrooms'
-import Utilities from './Utilities'
+import { UtilitiesContainer as Utilities } from './Utilities'
 import Workshop from './Workshop'
 
 const GroundFloorPlan = (props) => {

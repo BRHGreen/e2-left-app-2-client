@@ -2,7 +2,6 @@
 
 .full-height-vh--page {
   height: calc(100vh - #{$nav-header-height} - #{$padding-lg} * 2);
-  border: 1px solid;
 }
 
 p {

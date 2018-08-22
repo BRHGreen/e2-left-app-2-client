@@ -1,6 +1,5 @@
 .full-height-vh--page {
-  height: calc(100vh - 60px - 2em * 2);
-  border: 1px solid; }
+  height: calc(100vh - 60px - 2em * 2); }
 
 p {
   margin: 0.5em 0; }

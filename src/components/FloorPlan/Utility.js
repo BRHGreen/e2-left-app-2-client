@@ -1,7 +1,7 @@
 import React from 'react';
 import Dropdown from '../Common/Dropdown'
 
-class Bedroom extends React.Component {
+class Utility extends React.Component {
   state = {
     isEditing: false,
     newOwnerId: null,
@@ -48,19 +48,17 @@ class Bedroom extends React.Component {
   }
   
   render() {
-    const { room, allUsers } = this.props
+    const { utility } = this.props
     const { isEditing, dropdownOpen, hide } = this.state
     return (
-      <div className="bedroom box">
+      <div className="utility box">
       {!isEditing
           ? <div className="box-content">
           {
-            room.user && room.user.username
-              ? <span>{room.user.username}</span>
-              : <span className="text-gray">unoccupied</span>
+              utility.utilityType && <span>{utility.utilityType}</span>
           }
             <div className="box-footer">
-            <span className="floor-plan__room--number text-xs">{`no: ${room.roomNumber}`}</span>
+            <span className="floor-plan__utility--number text-xs">{`no: ${utility.utilityNumber}`}</span>
               <button className="btn btn-action btn-sm">
                 <i onClick={() => this.handleEditing(true)} className="icon icon-edit" />
               </button>
@@ -71,9 +69,7 @@ class Bedroom extends React.Component {
             <Dropdown
               isOpen={dropdownOpen}
               onClose={() => this.handleEditing()}
-              header={
-                this.state.newOwnerName || (room.user && room.user.username)
-              }
+              header={utility.isOpperational}
               menuItems={this.getMenuItems()}
               onChangeHandler={(user) => this.onChangeHandler(user)}
               displayValue="username"
@@ -93,4 +89,4 @@ class Bedroom extends React.Component {
     )
   }
 }
-export default Bedroom
+export default Utility
