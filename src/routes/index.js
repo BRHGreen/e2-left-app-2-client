@@ -9,6 +9,7 @@ import Kitchen from '../components/Kitchen/Kitchen'
 import TopFloorPlan from '../components/FloorPlan/TopFloorPlan'
 import GroundFloorPlan from '../components/FloorPlan/GroundFloorPlan'
 import { MainlandWestCupboardsContainer } from '../components/Kitchen/Cupboards/MainlandWestCupboards'
+import Kitty from '../components/Kitty/Kitty';
 
 import {
   // history,
@@ -57,6 +58,7 @@ export default () =>(
       <PrivateRoute path="/kitchen/mainland-west" exact component={MainlandWestCupboardsContainer} />
       <PrivateRoute path="/ground-floor-plan" exact component={GroundFloorPlan} />
       <PrivateRoute path="/top-floor-plan" exact component={TopFloorPlan} />
+      <PrivateRoute path="/kitty" exact component={Kitty} />
     </div>
   </Router>
 )
