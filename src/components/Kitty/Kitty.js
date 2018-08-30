@@ -8,21 +8,30 @@ class Kitty extends React.Component {
   }
 
   parseCsv = async () => {
-    // console.log('this.state', this.state.csvContent)
-    const arr = [this.state.csvContent]
-    // console.log('arr', arr)
-    console.log('split',this.state.csvContent.split(",", 6))
-    const fields = this.state.csvContent.split(",", 6)
-    console.log('fields', fields)
-    await this.props.createKittyStatement({
-      variables: {
-        date: fields[0],
-        counterParty: fields[1],
-        reference: fields[2],
-        type: fields[3],
-        amount: fields[4],
-        balance: fields[5],
-      }
+    const allConntent = this.state.csvContent.split(",")
+
+    const map = allConntent.map((item, i) => {
+      console.log('item', item)
+      return item
+    })
+
+    console.log('map', map)
+
+    const arrs = [
+      ["02/07/2018","A WILSON","AMY","FASTER PAYMENT",5.00,235.71],
+      ["02/07/2018","TANCZOS PGE","PETER","FASTER PAYMENT",5.00,240.71]
+    ]
+    await arrs.map((arr) => {
+      this.props.createKittyStatement({
+        variables: {
+          date: arr[0],
+          counterParty: arr[1],
+          reference: arr[2],
+          type: arr[3],
+          amount: arr[4],
+          balance: arr[5],
+        }
+      })
     })
   }
 
