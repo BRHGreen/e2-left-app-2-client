@@ -27,3 +27,18 @@ mutation(
     }
   }
 `
+
+export const getAllKittyStatements = gql`
+  query getAllKittyStatements {
+    getAllKittyStatements {
+      id
+      date
+      counterParty
+      reference
+      type
+      amount
+      balance
+      openingBalance
+    }
+  }
+`;
