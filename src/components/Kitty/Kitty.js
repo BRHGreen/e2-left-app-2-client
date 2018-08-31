@@ -8,31 +8,28 @@ class Kitty extends React.Component {
   }
 
   parseCsv = async () => {
-    const allConntent = this.state.csvContent.split(",")
+    const allContent = this.state.csvContent.replace(/\n/g, ",").split(',')
+    // const splitContent = allContent.split(',')
+    console.log('allContent', allContent)
 
-    const map = allConntent.map((item, i) => {
-      console.log('item', item)
-      return item
-    })
+    // const arrs = [
+    //   ["02/07/2018","A WILSON","AMY","FASTER PAYMENT",5.00,235.71,],
+    //   ["02/07/2018","JOHN DARKE","house","FASTER PAYMENT",5.00,185.71]
+    // ]
 
-    console.log('map', map)
 
-    const arrs = [
-      ["02/07/2018","A WILSON","AMY","FASTER PAYMENT",5.00,235.71],
-      ["02/07/2018","TANCZOS PGE","PETER","FASTER PAYMENT",5.00,240.71]
-    ]
-    await arrs.map((arr) => {
-      this.props.createKittyStatement({
-        variables: {
-          date: arr[0],
-          counterParty: arr[1],
-          reference: arr[2],
-          type: arr[3],
-          amount: arr[4],
-          balance: arr[5],
-        }
-      })
-    })
+    // await arrs.map((arr) => {
+    //   this.props.createKittyStatement({
+    //     variables: {
+    //       date: arr[0],
+    //       counterParty: arr[1],
+    //       reference: arr[2],
+    //       type: arr[3],
+    //       amount: arr[4],
+    //       balance: arr[5],
+    //     }
+    //   })
+    // })
   }
 
   onChangeHandler (e) {
