@@ -9,8 +9,16 @@ class Kitty extends React.Component {
 
   parseCsv = async () => {
     const allContent = this.state.csvContent.replace(/\n/g, ",").split(',')
-    // const splitContent = allContent.split(',')
-    console.log('allContent', allContent)
+
+    const arr = []
+    
+    var i, j, temparray, chunk = 6;
+    for (i = 0, j = allContent.length; i < j; i += chunk) {
+      temparray = allContent.slice(i, i + chunk);
+      arr.push(temparray)      
+    }
+
+    console.log('arr', arr)
 
     // const arrs = [
     //   ["02/07/2018","A WILSON","AMY","FASTER PAYMENT",5.00,235.71,],
