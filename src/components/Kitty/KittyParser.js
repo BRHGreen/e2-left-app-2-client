@@ -20,8 +20,7 @@ class KittyParser extends React.Component {
     }
 
     await splitContent.map((arr) => {
-      console.log(moment(arr[0], "DD/MM/YYYY").format("MM/DD/YYYY"))
-      
+      moment.locale();
       this.props.createKittyStatement({
         variables: {
           date: moment(arr[0], "DD/MM/YYYY").format("MM/DD/YYYY"),
