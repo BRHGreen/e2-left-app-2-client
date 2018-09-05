@@ -19,7 +19,8 @@ const Kitty = (props) => {
           </tr>
         </thead>
         <tbody>
-            {!getAllKittyStatements.loading && getAllKittyStatements.getAllKittyStatements.map((row, i) => keys && <tr key={i}>{keys.map((key, i) => <td key={i}>{row[keys[i]]}</td>)}</tr>
+            {!getAllKittyStatements.loading && getAllKittyStatements.getAllKittyStatements.map((row, i) => keys && <tr key={i}> {keys.map((_, i) => <td key={i}>{row[keys[i]]}</td>)}
+            </tr>
             )}
         </tbody>
       </table>

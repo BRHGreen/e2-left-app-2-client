@@ -1,6 +1,7 @@
 import React from 'react';
 import { compose, graphql } from 'react-apollo';
 import { createKittyStatement } from '../../graphql/kitty';
+import moment from 'moment';
 
 class KittyParser extends React.Component {
   state = {
@@ -19,9 +20,11 @@ class KittyParser extends React.Component {
     }
 
     await splitContent.map((arr) => {
+      console.log(moment(arr[0], "DD/MM/YYYY").format("MM/DD/YYYY"))
+      
       this.props.createKittyStatement({
         variables: {
-          date: arr[0],
+          date: moment(arr[0], "DD/MM/YYYY").format("MM/DD/YYYY"),
           counterParty: arr[1],
           reference: arr[2],
           type: arr[3],
