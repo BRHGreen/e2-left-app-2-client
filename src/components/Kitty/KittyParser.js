@@ -21,6 +21,7 @@ class KittyParser extends React.Component {
 
     await splitContent.map((arr) => {
       moment.locale();
+      console.log('moment', moment(arr[0], "DD/MM/YYYY").format("MM/YYYY"))
       this.props.createKittyStatement({
         variables: {
           date: moment(arr[0], "DD/MM/YYYY").format("MM/DD/YYYY"),
@@ -29,6 +30,7 @@ class KittyParser extends React.Component {
           type: arr[3],
           amount: arr[4],
           balance: arr[5],
+          month: moment(arr[0], "DD/MM/YYYY").format("MM/YYYY"),
         }
       })
     })
@@ -39,7 +41,6 @@ class KittyParser extends React.Component {
   }
   
   render() {
-    console.log(this.props)
     return (
       <div className='page__container'>
         <textarea style={{height: '500px', width: '500px'}} onChange={(e) => this.onChangeHandler(e)}/>

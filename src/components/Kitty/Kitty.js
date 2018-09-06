@@ -1,11 +1,11 @@
 import React from 'react';
 import { compose, graphql } from 'react-apollo';
-import { getAllKittyStatements } from '../../graphql/kitty';
+import { getKittyStatementsByMonth } from '../../graphql/kitty';
 
 const Kitty = (props) => {
-  const { getAllKittyStatements, loading } = props
-
-  const keys = !getAllKittyStatements.loading && Object.keys(getAllKittyStatements.getAllKittyStatements[0]).filter(key => !key.includes('__'))
+  const { getKittyStatementsByMonth, loading } = props
+  console.log('getKittyStatementsByMonth', getKittyStatementsByMonth)
+  const keys = !getKittyStatementsByMonth.loading && Object.keys(getKittyStatementsByMonth.getKittyStatementsByMonth[0]).filter(key => !key.includes('__'))
   
   console.log('keys', keys)
 
@@ -19,7 +19,7 @@ const Kitty = (props) => {
           </tr>
         </thead>
         <tbody>
-            {!getAllKittyStatements.loading && getAllKittyStatements.getAllKittyStatements.map((row, i) => keys && <tr key={i}> {keys.map((_, i) => <td key={i}>{row[keys[i]]}</td>)}
+            {!getKittyStatementsByMonth.loading && getKittyStatementsByMonth.getKittyStatementsByMonth.map((row, i) => keys && <tr key={i}> {keys.map((_, i) => <td key={i}>{row[keys[i]]}</td>)}
             </tr>
             )}
         </tbody>
@@ -29,7 +29,10 @@ const Kitty = (props) => {
 }
 
 export default compose(
-  graphql(getAllKittyStatements, {
-    name: 'getAllKittyStatements'
+  graphql(getKittyStatementsByMonth, {
+    name: 'getKittyStatementsByMonth',
+    options: {
+      variables: { month: '07/2018' }
+    }
   })
 )(Kitty)

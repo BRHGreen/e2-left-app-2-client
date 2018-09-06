@@ -9,6 +9,7 @@ mutation(
     $amount: Float,
     $balance: Float,
     $openingBalance: Float,
+    $month: String
   ) {
     createKittyStatement(
     date: $date
@@ -18,6 +19,7 @@ mutation(
     amount: $amount
     balance: $balance
     openingBalance: $openingBalance
+    month: $month
     ) {
       ok
       errors {
@@ -37,6 +39,21 @@ export const getAllKittyStatements = gql`
       type
       amount
       balance
+      month
+    }
+  }
+`;
+
+export const getKittyStatementsByMonth = gql`
+  query getKittyStatementsByMonth($month: String!) {
+    getKittyStatementsByMonth(month: $month) {
+      date
+      counterParty
+      reference
+      type
+      amount
+      balance
+      month
     }
   }
 `;
