@@ -27,14 +27,13 @@ class Kitty extends React.Component {
     await this.props.getKittyStatementsByMonth.refetch({
       month: monthSelected
     })
-    console.log('this.props', this.props)
   }
   
   render() {
-    const { getAllKittyStatements, getKittyStatementsByMonth, loading } = this.props
+    const { getKittyStatementsByMonth, loading } = this.props
     const { isOpen } = this.state
     
-    const keys = !getKittyStatementsByMonth.loading && Object.keys(getKittyStatementsByMonth.getKittyStatementsByMonth[0]).filter(key => !key.includes('__'))
+    const keys = !getKittyStatementsByMonth.loading && getKittyStatementsByMonth.getKittyStatementsByMonth.length > 0 && Object.keys(getKittyStatementsByMonth.getKittyStatementsByMonth[0]).filter(key => !key.includes('__'))
     
     
     return (
@@ -70,12 +69,10 @@ export default compose(
   }),
   graphql(getKittyStatementsByMonth, {
     name: 'getKittyStatementsByMonth',
-    props: (props) => {
-      return props
-    },
-    options: (props, state) => {
-      
-      return {variables: { month: '07/2018' }}
-    }
+    options: (props) => ({
+        variables: {
+          month: !props.getAllKittyStatements.loading && props.getAllKittyStatements.getAllKittyStatements[0].month
+        }
+      })
   })
 )(Kitty)

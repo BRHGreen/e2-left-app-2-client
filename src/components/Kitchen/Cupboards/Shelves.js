@@ -7,7 +7,6 @@ export const Shelves = (props) => {
   })
   return getShelves.map((shelf, i) => {
 
-    { console.log(shelf) }
     return (
           <Shelf
             key={i}

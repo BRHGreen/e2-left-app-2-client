@@ -10,7 +10,7 @@ class MainlandWestCupboards extends React.Component {
 
   render () {
     const { mainlandWestCupboards, allUsers: { allUsers } } = this.props
-    console.log(this.props.getMainlandWestCupboards)
+    
     return (
       <div className="page__container">
         {
