@@ -6,7 +6,7 @@ const Dropdown = (props) => {
       onClose,
       header,
       menuItems,
-      onChangeHandler,
+      onClick,
       displayValue
     } = props
     return (
@@ -23,7 +23,7 @@ const Dropdown = (props) => {
                   if(item) {
                     return (
                       <li className="menu-item" key={i}>
-                        <a onClick={() => onChangeHandler(item)}>{displayValue ? item[displayValue] : item}</a>
+                        <a onClick={() => onClick(item)}>{displayValue ? item[displayValue] : item}</a>
                       </li>
                     )
                   }

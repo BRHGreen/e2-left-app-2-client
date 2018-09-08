@@ -87,7 +87,7 @@ export class Shelf extends React.Component {
                       this.state.newOwnerName || (shelf.user && shelf.user.username)
                     }
                     menuItems={this.getMenuItems()}
-                    onChangeHandler={(user) => this.onChangeHandler(user)}
+                    onClick={(user) => this.onChangeHandler(user)}
                     displayValue={"username"}
                   />
                   <div className="box-footer edit" >

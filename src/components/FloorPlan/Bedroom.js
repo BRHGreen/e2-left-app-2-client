@@ -80,7 +80,7 @@ class Bedroom extends React.Component {
                 this.state.newOwnerName || (room.user && room.user.username)
               }
               menuItems={this.getMenuItems()}
-              onChangeHandler={(user) => this.onChangeHandler(user)}
+              onClick={(user) => this.onChangeHandler(user)}
               displayValue="username"
             />
             
