@@ -53,7 +53,6 @@ export const getKittyStatementsByMonth = gql`
       type
       amount
       balance
-      month
     }
   }
 `;

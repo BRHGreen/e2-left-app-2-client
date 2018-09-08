@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import { compose, graphql } from 'react-apollo';
 import { getAllKittyStatements, getKittyStatementsByMonth } from '../../graphql/kitty';
 import Dropdown from '../Common/Dropdown'
@@ -42,9 +43,7 @@ class Kitty extends React.Component {
       <Dropdown
         menuItems={this.getDropdownItems()}
         onClick={(monthSelected) => this.filterState(monthSelected)}
-        // displayValue={'month'}
         header='Select Month'
-        // isOpen={isOpen}
       />
         <table className="table table-striped table-hover">
           <thead>
@@ -53,7 +52,11 @@ class Kitty extends React.Component {
             </tr>
           </thead>
           <tbody>
-              {!getKittyStatementsByMonth.loading && getKittyStatementsByMonth.getKittyStatementsByMonth.map((row, i) => keys && <tr key={i}> {keys.map((_, i) => <td key={i}>{row[keys[i]]}</td>)}
+              {!getKittyStatementsByMonth.loading && getKittyStatementsByMonth.getKittyStatementsByMonth.map((row, i) => keys && <tr key={i}> {keys.map((_, i) => (
+                  <td key={i}>{keys[i] === 'date' ? moment(row[keys[i]]).format('DD/MM/YY') : row[keys[i]]}</td>
+                  )
+                )
+              }
               </tr>
               )}
           </tbody>
