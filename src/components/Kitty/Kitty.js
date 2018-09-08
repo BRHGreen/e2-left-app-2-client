@@ -36,7 +36,6 @@ class Kitty extends React.Component {
     
     const keys = !getKittyStatementsByMonth.loading && getKittyStatementsByMonth.getKittyStatementsByMonth.length > 0 && Object.keys(getKittyStatementsByMonth.getKittyStatementsByMonth[0]).filter(key => !key.includes('__'))
     
-    
     return (
       loading ? null
       : <div className="page__container">
@@ -52,13 +51,28 @@ class Kitty extends React.Component {
             </tr>
           </thead>
           <tbody>
-              {!getKittyStatementsByMonth.loading && getKittyStatementsByMonth.getKittyStatementsByMonth.map((row, i) => keys && <tr key={i}> {keys.map((_, i) => (
-                  <td key={i}>{keys[i] === 'date' ? moment(row[keys[i]]).format('DD/MM/YY') : row[keys[i]]}</td>
+              {
+                !getKittyStatementsByMonth.loading
+                && getKittyStatementsByMonth
+                .getKittyStatementsByMonth
+                .map((row, i) => (
+                  keys && 
+                    <tr key={i}>
+                      {keys.map((_, i) => (
+                        <td key={i}>
+                          {
+                            keys[i] === 'date'
+                            ? moment(row[keys[i]]).format('DD/MM/YY') 
+                            : row[keys[i]]
+                          }
+                        </td>
+                          )
+                        )
+                      }
+                    </tr>
                   )
                 )
               }
-              </tr>
-              )}
           </tbody>
         </table>
       </div>
